@@ -22,6 +22,7 @@ namespace Gerenciador_de_Turmas
         private void voltarAoMenuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form1.instance.Focus();
+            MessageBox.Show("Oi!");
             this.Close();
         }
 
