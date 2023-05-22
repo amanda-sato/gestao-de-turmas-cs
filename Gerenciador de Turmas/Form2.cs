@@ -44,11 +44,9 @@ namespace Gerenciador_de_Turmas
 
                 string nomeTurma = textBox1.Text;
                 double id = double.Parse(textBox2.Text);
-                int quantidade = int.Parse(textBox3.Text);
-
+                
                 turma1.setId(id);
                 turma1.setNomeDisc(nomeTurma);
-                turma1.setQuantidade(quantidade);
 
                 listTurmas.Items.Add(turma1);
 
