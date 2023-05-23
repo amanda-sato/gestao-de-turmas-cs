@@ -11,7 +11,7 @@ namespace Gerenciador_de_Turmas
     {
 
         private int alunoId;
-        private double disciplinaId;
+        private int disciplinaId;
         private int id;
         private double nota;
 
@@ -24,7 +24,7 @@ namespace Gerenciador_de_Turmas
 
         }       
 
-        public Nota(int alunoId, double disciplinaId, int id, double nota)
+        public Nota(int alunoId, int disciplinaId, int id, double nota)
         {
             this.alunoId = alunoId;
             this.disciplinaId = disciplinaId;
@@ -39,7 +39,7 @@ namespace Gerenciador_de_Turmas
 
         public void setAlunoId(int alunoId) { this.alunoId = alunoId; }
 
-        public void setDisciplinaId(double disciplinaId) { this.disciplinaId = disciplinaId; }
+        public void setDisciplinaId(int disciplinaId) { this.disciplinaId = disciplinaId; }
 
         public void setId(int id) { this.id = id; }
 

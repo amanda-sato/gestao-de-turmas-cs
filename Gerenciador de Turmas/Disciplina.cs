@@ -8,7 +8,7 @@ namespace Gerenciador_de_Turmas
 {
     internal class Disciplina
     {
-        private double id;
+        private int id;
         private string nomeDisc;
         
 
@@ -19,18 +19,18 @@ namespace Gerenciador_de_Turmas
 
         }
 
-        public Disciplina(double id, string nomeDisc)
+        public Disciplina(int id, string nomeDisc)
         {
             this.id = id;
             this.nomeDisc = nomeDisc;
 
         }
 
-        public double getId() { return id; }
+        public int getId() { return id; }
         public string getNomeDisc() { return nomeDisc; }
 
 
-        public void setId(double id) { this.id = id; }
+        public void setId(int id) { this.id = id; }
         public void setNomeDisc(string nomeDisc) { this.nomeDisc = nomeDisc; }
 
 

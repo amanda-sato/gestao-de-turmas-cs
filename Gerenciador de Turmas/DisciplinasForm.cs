@@ -38,7 +38,7 @@ namespace Gerenciador_de_Turmas
             {
                 Disciplina disciplina1 = new Disciplina();
 
-                double id = int.Parse(textBox1.Text);
+                int id = int.Parse(textBox1.Text);
                 string nomeDisc = textBox2.Text;
 
                 disciplina1.setId(id);
