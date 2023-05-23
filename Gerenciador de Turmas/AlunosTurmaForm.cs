@@ -11,10 +11,10 @@ using System.Windows.Forms;
 namespace Gerenciador_de_Turmas
 {
     
-    public partial class TurmaForm : Form
+    public partial class AlunosTurmaForm : Form
     {
-        public static TurmaForm instance;
-        public TurmaForm()
+        public static AlunosTurmaForm instance;
+        public AlunosTurmaForm()
         {
             InitializeComponent();
             instance = this;
@@ -77,11 +77,19 @@ namespace Gerenciador_de_Turmas
             }
         }
 
-            private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
+            if (listAlunos.SelectedItem != null)
+            {
+                Aluno selectedDisciplina = listAlunos.SelectedItem as Aluno;
+
+                listAlunos.Items.Remove(selectedDisciplina);
+            }
+            else
+            {
+                MessageBox.Show("Selecione uma disciplina!");
+            }
 
         }
-
-        
     }
 }

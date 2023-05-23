@@ -1,6 +1,6 @@
 ﻿namespace Gerenciador_de_Turmas
 {
-    partial class TurmaForm
+    partial class AlunosTurmaForm
     {
         /// <summary>
         /// Required designer variable.

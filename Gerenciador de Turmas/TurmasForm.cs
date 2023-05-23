@@ -61,7 +61,7 @@ namespace Gerenciador_de_Turmas
         {
             if (listTurmas.SelectedItems !=  null)
             {
-                TurmaForm form = new TurmaForm();
+                AlunosTurmaForm form = new AlunosTurmaForm();
                 form.Show();
             }
 

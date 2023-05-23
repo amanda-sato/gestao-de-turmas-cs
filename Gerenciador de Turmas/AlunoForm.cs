@@ -21,7 +21,7 @@ namespace Gerenciador_de_Turmas
 
         private void voltarAoMenuTurmaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TurmaForm.instance.Focus();
+            AlunosTurmaForm.instance.Focus();
             this.Close();
         }
 
