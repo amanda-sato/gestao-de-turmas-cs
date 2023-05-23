@@ -67,12 +67,14 @@
             this.voltarAoMenuTurmaToolStripMenuItem.Name = "voltarAoMenuTurmaToolStripMenuItem";
             this.voltarAoMenuTurmaToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.voltarAoMenuTurmaToolStripMenuItem.Text = "Voltar ao Menu Turma";
+            this.voltarAoMenuTurmaToolStripMenuItem.Click += new System.EventHandler(this.voltarAoMenuTurmaToolStripMenuItem_Click);
             // 
             // fecharProgramaToolStripMenuItem
             // 
             this.fecharProgramaToolStripMenuItem.Name = "fecharProgramaToolStripMenuItem";
             this.fecharProgramaToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.fecharProgramaToolStripMenuItem.Text = "Fechar Programa";
+            this.fecharProgramaToolStripMenuItem.Click += new System.EventHandler(this.fecharProgramaToolStripMenuItem_Click);
             // 
             // listNotas
             // 

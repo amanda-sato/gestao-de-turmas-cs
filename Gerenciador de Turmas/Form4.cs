@@ -46,12 +46,22 @@ namespace Gerenciador_de_Turmas
                 aluno1.setGenero(genero);
 
                 listAlunos.Items.Add(aluno1);
-    }
-
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void listAlunos_DoubleClick(object sender, EventArgs e)
+        {
+            if (listAlunos.SelectedItems != null)
+            {
+                Form5 form = new Form5();
+                form.Show();
+            }
+
+        }
+
     }
 }

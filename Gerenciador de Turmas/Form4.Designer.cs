@@ -84,6 +84,7 @@
             this.listAlunos.Name = "listAlunos";
             this.listAlunos.Size = new System.Drawing.Size(277, 316);
             this.listAlunos.TabIndex = 1;
+            this.listAlunos.SelectedIndexChanged += new System.EventHandler(this.listAlunos_DoubleClick);
             // 
             // label1
             // 
