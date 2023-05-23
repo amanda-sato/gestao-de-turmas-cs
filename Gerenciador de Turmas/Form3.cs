@@ -63,10 +63,8 @@ namespace Gerenciador_de_Turmas
                 Disciplina selectedDisciplina = listDisciplinas.SelectedItem as Disciplina;
 
                 textBox1.Text = selectedDisciplina.getId().ToString();
-                textBox2.Text = selectedDisciplina.getNomeDisc();
-                
+                textBox2.Text = selectedDisciplina.getNomeDisc();   
             }
-
         }
 
         private void button2_Click(object sender, EventArgs e)
