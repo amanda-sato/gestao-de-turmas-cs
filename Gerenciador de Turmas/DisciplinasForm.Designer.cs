@@ -183,7 +183,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listDisciplinas;
+        public System.Windows.Forms.ListBox listDisciplinas;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

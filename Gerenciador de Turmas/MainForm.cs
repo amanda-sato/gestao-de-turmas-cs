@@ -17,6 +17,7 @@ namespace Gerenciador_de_Turmas
         {
             InitializeComponent();
             instance = this;
+            
         }
 
         private void label1_Click(object sender, EventArgs e)

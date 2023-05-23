@@ -42,6 +42,12 @@ namespace Gerenciador_de_Turmas
             }
         }
 
-
+        private void notas_Enter(object sender, EventArgs e)
+        {
+            foreach (Disciplina d in DisciplinasForm.instance.listDisciplinas.Items)
+            {
+                MessageBox.Show(d.ToString());
+            }
+        }
     }
 }

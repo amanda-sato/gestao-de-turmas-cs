@@ -17,6 +17,7 @@ namespace Gerenciador_de_Turmas
         {
             InitializeComponent();
             instance = this;
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -90,6 +91,11 @@ namespace Gerenciador_de_Turmas
             {
                 MessageBox.Show("Selecione uma Turma!");
             }
+        }
+
+        private void listTurmas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -32,6 +32,9 @@
             this.opçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.voltarAoMenuPrincipalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fecharProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.médiaGeralPorAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listTurmas = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,9 +44,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.médiaGeralPorAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,16 +72,34 @@
             // voltarAoMenuPrincipalToolStripMenuItem
             // 
             this.voltarAoMenuPrincipalToolStripMenuItem.Name = "voltarAoMenuPrincipalToolStripMenuItem";
-            this.voltarAoMenuPrincipalToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.voltarAoMenuPrincipalToolStripMenuItem.Size = new System.Drawing.Size(298, 22);
             this.voltarAoMenuPrincipalToolStripMenuItem.Text = "Voltar ao Menu Principal";
             this.voltarAoMenuPrincipalToolStripMenuItem.Click += new System.EventHandler(this.voltarAoMenuPrincipalToolStripMenuItem_Click);
             // 
             // fecharProgramaToolStripMenuItem
             // 
             this.fecharProgramaToolStripMenuItem.Name = "fecharProgramaToolStripMenuItem";
-            this.fecharProgramaToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.fecharProgramaToolStripMenuItem.Size = new System.Drawing.Size(298, 22);
             this.fecharProgramaToolStripMenuItem.Text = "Fechar Programa";
             this.fecharProgramaToolStripMenuItem.Click += new System.EventHandler(this.fecharProgramaToolStripMenuItem_Click);
+            // 
+            // relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem
+            // 
+            this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem.Name = "relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem";
+            this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem.Size = new System.Drawing.Size(298, 22);
+            this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem.Text = "Relação de alunos aprovados e reprovados";
+            // 
+            // médiaGeralPorAlunoToolStripMenuItem
+            // 
+            this.médiaGeralPorAlunoToolStripMenuItem.Name = "médiaGeralPorAlunoToolStripMenuItem";
+            this.médiaGeralPorAlunoToolStripMenuItem.Size = new System.Drawing.Size(298, 22);
+            this.médiaGeralPorAlunoToolStripMenuItem.Text = "Média geral por aluno";
+            // 
+            // taxaDeAprovaçãoPorDisciplinaToolStripMenuItem
+            // 
+            this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem.Name = "taxaDeAprovaçãoPorDisciplinaToolStripMenuItem";
+            this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem.Size = new System.Drawing.Size(298, 22);
+            this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem.Text = "Taxa de aprovação por disciplina";
             // 
             // listTurmas
             // 
@@ -91,6 +109,7 @@
             this.listTurmas.Size = new System.Drawing.Size(274, 316);
             this.listTurmas.TabIndex = 1;
             this.listTurmas.Click += new System.EventHandler(this.listTurmas_singleClick);
+            this.listTurmas.SelectedIndexChanged += new System.EventHandler(this.listTurmas_SelectedIndexChanged);
             this.listTurmas.DoubleClick += new System.EventHandler(this.listTurmas_DoubleClick);
             // 
             // label1
@@ -163,25 +182,7 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem
-            // 
-            this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem.Name = "relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem";
-            this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem.Size = new System.Drawing.Size(298, 22);
-            this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem.Text = "Relação de alunos aprovados e reprovados";
-            // 
-            // médiaGeralPorAlunoToolStripMenuItem
-            // 
-            this.médiaGeralPorAlunoToolStripMenuItem.Name = "médiaGeralPorAlunoToolStripMenuItem";
-            this.médiaGeralPorAlunoToolStripMenuItem.Size = new System.Drawing.Size(298, 22);
-            this.médiaGeralPorAlunoToolStripMenuItem.Text = "Média geral por aluno";
-            // 
-            // taxaDeAprovaçãoPorDisciplinaToolStripMenuItem
-            // 
-            this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem.Name = "taxaDeAprovaçãoPorDisciplinaToolStripMenuItem";
-            this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem.Size = new System.Drawing.Size(298, 22);
-            this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem.Text = "Taxa de aprovação por disciplina";
-            // 
-            // Form2
+            // TurmasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -197,7 +198,7 @@
             this.Controls.Add(this.listTurmas);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form2";
+            this.Name = "TurmasForm";
             this.Text = "Menu Turmas";
             this.DoubleClick += new System.EventHandler(this.listTurmas_DoubleClick);
             this.menuStrip1.ResumeLayout(false);
