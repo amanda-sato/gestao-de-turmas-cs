@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Gerenciador_de_Turmas
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public static Form1 instance;
-        public Form1()
+        public static MainForm instance;
+        public MainForm()
         {
             InitializeComponent();
             instance = this;
@@ -26,7 +26,7 @@ namespace Gerenciador_de_Turmas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 form = new Form2();
+            TurmasForm form = new TurmasForm();
             form.Show();
         }
 
@@ -37,7 +37,7 @@ namespace Gerenciador_de_Turmas
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form3 form = new Form3();
+            DisciplinasForm form = new DisciplinasForm();
             form.Show();
         }
     }

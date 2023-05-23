@@ -17,17 +17,17 @@ namespace Gerenciador_de_Turmas
             nomeTurma = "";
         }
 
-        public Turma(double id, string nomeDisc)
+        public Turma(double id, string nomeTurma)
         {
             this.id = id;
-            this.nomeTurma = nomeDisc;
+            this.nomeTurma = nomeTurma;
         }
 
         public double getId() { return id; }
-        public string getNomeDisc() { return nomeTurma; }
+        public string getNomeTurma() { return nomeTurma; }
 
         public void setId(double id) { this.id = id; }
-        public void setNomeDisc(string nomeTurma) { this.nomeTurma = nomeTurma; }
+        public void setNomeTurma(string nomeTurma) { this.nomeTurma = nomeTurma; }
 
         public override string ToString()
         {

@@ -1,6 +1,6 @@
 ﻿namespace Gerenciador_de_Turmas
 {
-    partial class Form3
+    partial class DisciplinasForm
     {
         /// <summary>
         /// Required designer variable.

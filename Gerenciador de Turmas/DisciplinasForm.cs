@@ -11,10 +11,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Gerenciador_de_Turmas
 {
-    public partial class Form3 : Form
+    public partial class DisciplinasForm : Form
     {
-        public static Form3 instance;
-        public Form3()
+        public static DisciplinasForm instance;
+        public DisciplinasForm()
         {
             InitializeComponent();
             instance = this;
@@ -22,7 +22,7 @@ namespace Gerenciador_de_Turmas
 
         private void voltarAoMenuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form1.instance.Focus();
+            MainForm.instance.Focus();
             this.Close();
         }
 

@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Gerenciador_de_Turmas
 {
-    public partial class Form2 : Form
+    public partial class TurmasForm : Form
     {
-        public static Form2 instance;
-        public Form2()
+        public static TurmasForm instance;
+        public TurmasForm()
         {
             InitializeComponent();
             instance = this;
@@ -26,7 +26,7 @@ namespace Gerenciador_de_Turmas
 
         private void voltarAoMenuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form1.instance.Focus();
+            MainForm.instance.Focus();
             this.Close();
 
         }
@@ -46,7 +46,7 @@ namespace Gerenciador_de_Turmas
                 double id = double.Parse(textBox2.Text);
                 
                 turma1.setId(id);
-                turma1.setNomeDisc(nomeTurma);
+                turma1.setNomeTurma(nomeTurma);
 
                 listTurmas.Items.Add(turma1);
 
@@ -61,10 +61,35 @@ namespace Gerenciador_de_Turmas
         {
             if (listTurmas.SelectedItems !=  null)
             {
-                Form4 form = new Form4();
+                TurmaForm form = new TurmaForm();
                 form.Show();
             }
 
+        }
+
+        private void listTurmas_singleClick(object sender, EventArgs e)
+        {
+            if (listTurmas.SelectedItem != null)
+            {
+                Turma selectedDisciplina = listTurmas.SelectedItem as Turma;
+
+                textBox1.Text = selectedDisciplina.getId().ToString();
+                textBox2.Text = selectedDisciplina.getNomeTurma();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (listTurmas.SelectedItem != null)
+            {
+                Turma selectedTurmas = listTurmas.SelectedItem as Turma;
+
+                listTurmas.Items.Remove(selectedTurmas);
+            }
+            else
+            {
+                MessageBox.Show("Selecione uma Turma!");
+            }
         }
     }
 }

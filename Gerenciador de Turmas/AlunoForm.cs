@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Gerenciador_de_Turmas
 {
-    public partial class Form5 : Form
+    public partial class AlunoForm : Form
     {
-        public static Form5 instance;
-        public Form5()
+        public static AlunoForm instance;
+        public AlunoForm()
         {
             InitializeComponent();
             instance = this;
@@ -21,7 +21,7 @@ namespace Gerenciador_de_Turmas
 
         private void voltarAoMenuTurmaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form4.instance.Focus();
+            TurmaForm.instance.Focus();
             this.Close();
         }
 
@@ -29,5 +29,19 @@ namespace Gerenciador_de_Turmas
         {
             System.Windows.Forms.Application.Exit();
         }
+
+
+        private void listNotas_singleClick(object sender, EventArgs e)
+        {
+            if (listNotas.SelectedItem != null)
+            {
+               // Aluno selectedAluno = listNotas.SelectedItem as Aluno;
+
+                //textBox5.Text = selectedAluno.get().ToString();
+               // textBox6.Text = selectedAluno.getNomeDisc();
+            }
+        }
+
+
     }
 }

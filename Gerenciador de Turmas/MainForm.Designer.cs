@@ -1,6 +1,6 @@
 ﻿namespace Gerenciador_de_Turmas
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -88,11 +88,11 @@
             // fecharProgramaToolStripMenuItem
             // 
             this.fecharProgramaToolStripMenuItem.Name = "fecharProgramaToolStripMenuItem";
-            this.fecharProgramaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fecharProgramaToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.fecharProgramaToolStripMenuItem.Text = "Fechar Programa";
             this.fecharProgramaToolStripMenuItem.Click += new System.EventHandler(this.fecharProgramaToolStripMenuItem_Click);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -102,7 +102,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Menu";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
