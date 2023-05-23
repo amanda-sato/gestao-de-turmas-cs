@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Gerenciador_de_Turmas
 {
-    public partial class AlunoForm : Form
+    public partial class NotasAlunoForm : Form
     {
-        public static AlunoForm instance;
-        public AlunoForm()
+        public static NotasAlunoForm instance;
+        public NotasAlunoForm()
         {
             InitializeComponent();
             instance = this;

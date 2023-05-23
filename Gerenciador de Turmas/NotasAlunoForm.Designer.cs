@@ -1,6 +1,6 @@
 ﻿namespace Gerenciador_de_Turmas
 {
-    partial class AlunoForm
+    partial class NotasAlunoForm
     {
         /// <summary>
         /// Required designer variable.

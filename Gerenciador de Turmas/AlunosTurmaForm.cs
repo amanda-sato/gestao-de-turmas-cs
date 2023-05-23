@@ -57,7 +57,7 @@ namespace Gerenciador_de_Turmas
         {
             if (listAlunos.SelectedItems != null)
             {
-                AlunoForm form = new AlunoForm();
+                NotasAlunoForm form = new NotasAlunoForm();
                 form.Show();
             }
 
