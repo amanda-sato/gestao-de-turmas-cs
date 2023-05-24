@@ -12,7 +12,6 @@ namespace Gerenciador_de_Turmas
         private string nomeAluno;
         private string genero;
 
-
         public Aluno()
         {
             matricula = 0;

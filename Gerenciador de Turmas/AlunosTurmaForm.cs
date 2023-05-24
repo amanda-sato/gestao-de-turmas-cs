@@ -59,6 +59,15 @@ namespace Gerenciador_de_Turmas
             {
                 NotasAlunoForm form = new NotasAlunoForm();
                 form.Show();
+
+                if (listAlunos.SelectedItem != null)
+                {
+                    Aluno selectedDisciplina = listAlunos.SelectedItem as Aluno;
+
+                    NotasAlunoForm.instance.textBox3.Text = selectedDisciplina.getMatricula().ToString();
+                    NotasAlunoForm.instance.textBox1.Text = selectedDisciplina.getNomeAluno();
+                    
+                }
             }
 
         }

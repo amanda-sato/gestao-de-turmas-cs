@@ -64,6 +64,17 @@ namespace Gerenciador_de_Turmas
             {
                 AlunosTurmaForm form = new AlunosTurmaForm();
                 form.Show();
+
+                if (listTurmas.SelectedItem != null)
+                {
+                    Turma selectedDisciplina = listTurmas.SelectedItem as Turma;
+
+                    AlunosTurmaForm.instance.textBox4.Text = selectedDisciplina.getId().ToString();
+                    AlunosTurmaForm.instance.textBox5.Text = selectedDisciplina.getNomeTurma();
+
+                }
+
+
             }
 
         }
@@ -74,8 +85,8 @@ namespace Gerenciador_de_Turmas
             {
                 Turma selectedDisciplina = listTurmas.SelectedItem as Turma;
 
-                textBox1.Text = selectedDisciplina.getId().ToString();
-                textBox2.Text = selectedDisciplina.getNomeTurma();
+                textBox2.Text = selectedDisciplina.getId().ToString();
+                textBox1.Text = selectedDisciplina.getNomeTurma();
             }
         }
 
