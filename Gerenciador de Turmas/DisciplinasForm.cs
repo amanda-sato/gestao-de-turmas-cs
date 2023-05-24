@@ -16,6 +16,8 @@ namespace Gerenciador_de_Turmas
             {
                 listDisciplinas.Items.Add(d);
             }
+
+            resetaForm();
         }
 
         private void voltarAoMenuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
@@ -43,13 +45,14 @@ namespace Gerenciador_de_Turmas
 
                 MainForm.instance.state.disciplinas.Add(novaDisciplina);
                 listDisciplinas.Items.Add(novaDisciplina);
+
+                resetaForm();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }   
         }
-
 
         private void listAlunos_singleClick(object sender, EventArgs e)
         {
@@ -64,17 +67,18 @@ namespace Gerenciador_de_Turmas
 
         private void buttonRemoverDisciplina_Click(object sender, EventArgs e)
         {
-            if (listDisciplinas.SelectedItem != null)
-            {
-                Disciplina selectedDisciplina = listDisciplinas.SelectedItem as Disciplina;
-
-                MainForm.instance.state.disciplinas.Remove(selectedDisciplina);
-                listDisciplinas.Items.Remove(selectedDisciplina);
-            }
-            else
+            if (listDisciplinas.SelectedItem == null)
             {
                 MessageBox.Show("Selecione uma disciplina!");
+                return;
             }
+            
+            Disciplina selectedDisciplina = listDisciplinas.SelectedItem as Disciplina;
+
+            MainForm.instance.state.disciplinas.Remove(selectedDisciplina);
+            listDisciplinas.Items.Remove(selectedDisciplina);
+
+            resetaForm();
         }
 
         private void buttonEditarDisciplina_Click(object sender, EventArgs e)
@@ -91,6 +95,14 @@ namespace Gerenciador_de_Turmas
             MainForm.instance.state.disciplinas.Atualizar(selectedDisciplina);
 
             listDisciplinas.Items[listDisciplinas.SelectedIndex] = selectedDisciplina;
+
+            resetaForm();
+        }
+
+        private void resetaForm()
+        {
+            textBoxIdDisciplina.Text = Disciplina.getNextId().ToString();
+            textBoxNomeDaDisciplina.Clear();
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Gerenciador_de_Turmas
         
         public Disciplina()
         {
-            id = 0;
+            id = nextId++;
             nomeDisc = "";
 
         }
@@ -24,6 +24,11 @@ namespace Gerenciador_de_Turmas
         {
             this.id = id >= 0 ? id : nextId++;
             this.nomeDisc = nomeDisc;
+        }
+
+        public static int getNextId()
+        {
+            return nextId;
         }
 
         public int getId() { return id; }
