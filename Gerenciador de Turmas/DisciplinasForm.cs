@@ -18,6 +18,11 @@ namespace Gerenciador_de_Turmas
         {
             InitializeComponent();
             instance = this;
+
+            foreach (Disciplina d in MainForm.instance.state.disciplinas)
+            {
+                listDisciplinas.Items.Add(d);
+            }
         }
 
         private void voltarAoMenuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,17 +47,15 @@ namespace Gerenciador_de_Turmas
                 string nomeDisc = textBox2.Text;
 
                 disciplina1.setId(id);
-                disciplina1.setNomeDisc(nomeDisc);               
+                disciplina1.setNomeDisc(nomeDisc);
 
+                MainForm.instance.state.disciplinas.Add(disciplina1);
                 listDisciplinas.Items.Add(disciplina1);
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-
-            
+            }   
         }
 
 
@@ -73,6 +76,7 @@ namespace Gerenciador_de_Turmas
             {
                 Disciplina selectedDisciplina = listDisciplinas.SelectedItem as Disciplina;
 
+                MainForm.instance.state.disciplinas.Remove(selectedDisciplina);
                 listDisciplinas.Items.Remove(selectedDisciplina);
             }
             else

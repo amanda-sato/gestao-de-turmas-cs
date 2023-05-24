@@ -21,5 +21,10 @@ namespace Gerenciador_de_Turmas
         {
             _list.Add(item);
         }
+
+        public bool Remove(T item)
+        {
+            return _list.Remove(item);
+        }
     }
 }

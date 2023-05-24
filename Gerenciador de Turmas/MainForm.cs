@@ -13,10 +13,18 @@ namespace Gerenciador_de_Turmas
     public partial class MainForm : Form
     {
         public static MainForm instance;
+        public State state;
+
         public MainForm()
         {
             InitializeComponent();
             instance = this;
+
+            state = new State();
+
+            state.disciplinas.Add(new Disciplina(id: 1, nomeDisc: "Matemática"));
+            state.disciplinas.Add(new Disciplina(id: 2, nomeDisc: "Programação"));
+            state.disciplinas.Add(new Disciplina(id: 3, nomeDisc: "Biologia"));
         }
 
         private void label1_Click(object sender, EventArgs e)
