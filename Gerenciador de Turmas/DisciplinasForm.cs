@@ -104,5 +104,10 @@ namespace Gerenciador_de_Turmas
             textBoxIdDisciplina.Text = Disciplina.getNextId().ToString();
             textBoxNomeDaDisciplina.Clear();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            resetaForm();
+        }
     }
 }
