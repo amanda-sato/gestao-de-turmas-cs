@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Gerenciador_de_Turmas
 {
@@ -33,7 +25,7 @@ namespace Gerenciador_de_Turmas
 
         private void encerrarProgramaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            Application.Exit();
         }
 
         private void buttonAddDisciplina_Click(object sender, EventArgs e)
@@ -83,6 +75,23 @@ namespace Gerenciador_de_Turmas
             {
                 MessageBox.Show("Selecione uma disciplina!");
             }
+        }
+
+        private void buttonEditarDisciplina_Click(object sender, EventArgs e)
+        {
+            if (listDisciplinas.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione uma disciplina!");
+                return;
+            }
+
+            Disciplina selectedDisciplina = listDisciplinas.SelectedItem as Disciplina;
+
+            selectedDisciplina.setNomeDisc(textBoxNomeDaDisciplina.Text);
+            MainForm.instance.state.disciplinas.Atualizar(selectedDisciplina);
+
+            listDisciplinas.Items[listDisciplinas.SelectedIndex] = selectedDisciplina;
+
         }
     }
 }

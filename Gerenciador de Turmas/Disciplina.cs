@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gerenciador_de_Turmas
 {
-    public class Disciplina
+    public class Disciplina : IRegistro
     {
         private int id;
         private string nomeDisc;
