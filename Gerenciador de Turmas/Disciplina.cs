@@ -8,6 +8,8 @@ namespace Gerenciador_de_Turmas
 {
     public class Disciplina : IRegistro
     {
+        private static int nextId = 1;
+
         private int id;
         private string nomeDisc;
         
@@ -18,11 +20,10 @@ namespace Gerenciador_de_Turmas
 
         }
 
-        public Disciplina(int id, string nomeDisc)
+        public Disciplina(string nomeDisc, int id = -1)
         {
-            this.id = id;
+            this.id = id >= 0 ? id : nextId++;
             this.nomeDisc = nomeDisc;
-
         }
 
         public int getId() { return id; }

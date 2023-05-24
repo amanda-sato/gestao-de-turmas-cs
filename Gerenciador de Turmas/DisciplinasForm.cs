@@ -6,6 +6,7 @@ namespace Gerenciador_de_Turmas
     public partial class DisciplinasForm : Form
     {
         public static DisciplinasForm instance;
+
         public DisciplinasForm()
         {
             InitializeComponent();
@@ -30,7 +31,6 @@ namespace Gerenciador_de_Turmas
 
         private void buttonAddDisciplina_Click(object sender, EventArgs e)
         {
-
             try
             {
                 Disciplina novaDisciplina = new Disciplina();
@@ -91,7 +91,6 @@ namespace Gerenciador_de_Turmas
             MainForm.instance.state.disciplinas.Atualizar(selectedDisciplina);
 
             listDisciplinas.Items[listDisciplinas.SelectedIndex] = selectedDisciplina;
-
         }
     }
 }
