@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace Gerenciador_de_Turmas
 {
-    internal class Disciplina
+    public class Disciplina
     {
         private int id;
         private string nomeDisc;
         
-
         public Disciplina()
         {
             id = 0;
