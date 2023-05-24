@@ -36,21 +36,21 @@ namespace Gerenciador_de_Turmas
             System.Windows.Forms.Application.Exit();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonAddDisciplina_Click(object sender, EventArgs e)
         {
 
             try
             {
-                Disciplina disciplina1 = new Disciplina();
+                Disciplina novaDisciplina = new Disciplina();
 
                 int id = int.Parse(textBox1.Text);
                 string nomeDisc = textBox2.Text;
 
-                disciplina1.setId(id);
-                disciplina1.setNomeDisc(nomeDisc);
+                novaDisciplina.setId(id);
+                novaDisciplina.setNomeDisc(nomeDisc);
 
-                MainForm.instance.state.disciplinas.Add(disciplina1);
-                listDisciplinas.Items.Add(disciplina1);
+                MainForm.instance.state.disciplinas.Add(novaDisciplina);
+                listDisciplinas.Items.Add(novaDisciplina);
             }
             catch (Exception ex)
             {
@@ -70,7 +70,7 @@ namespace Gerenciador_de_Turmas
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonRemoverDisciplina_Click(object sender, EventArgs e)
         {
             if (listDisciplinas.SelectedItem != null)
             {
