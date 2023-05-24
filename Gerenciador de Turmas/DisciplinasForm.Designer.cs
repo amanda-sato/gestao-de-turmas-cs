@@ -36,8 +36,8 @@
             this.opçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.voltarAoMenuPrincipalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.encerrarProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxIdDisciplina = new System.Windows.Forms.TextBox();
+            this.textBoxNomeDaDisciplina = new System.Windows.Forms.TextBox();
             this.buttonAddDisciplina = new System.Windows.Forms.Button();
             this.buttonRemoverDisciplina = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -113,19 +113,19 @@
             this.encerrarProgramaToolStripMenuItem.Text = "Encerrar Programa";
             this.encerrarProgramaToolStripMenuItem.Click += new System.EventHandler(this.encerrarProgramaToolStripMenuItem_Click);
             // 
-            // textBox1
+            // textBoxIdDisciplina
             // 
-            this.textBox1.Location = new System.Drawing.Point(386, 64);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(134, 20);
-            this.textBox1.TabIndex = 5;
+            this.textBoxIdDisciplina.Location = new System.Drawing.Point(386, 64);
+            this.textBoxIdDisciplina.Name = "textBoxIdDisciplina";
+            this.textBoxIdDisciplina.Size = new System.Drawing.Size(134, 20);
+            this.textBoxIdDisciplina.TabIndex = 5;
             // 
-            // textBox2
+            // textBoxNomeDaDisciplina
             // 
-            this.textBox2.Location = new System.Drawing.Point(466, 123);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(134, 20);
-            this.textBox2.TabIndex = 6;
+            this.textBoxNomeDaDisciplina.Location = new System.Drawing.Point(466, 123);
+            this.textBoxNomeDaDisciplina.Name = "textBoxNomeDaDisciplina";
+            this.textBoxNomeDaDisciplina.Size = new System.Drawing.Size(134, 20);
+            this.textBoxNomeDaDisciplina.TabIndex = 6;
             // 
             // buttonAddDisciplina
             // 
@@ -164,8 +164,8 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.buttonRemoverDisciplina);
             this.Controls.Add(this.buttonAddDisciplina);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxNomeDaDisciplina);
+            this.Controls.Add(this.textBoxIdDisciplina);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -191,8 +191,8 @@
         private System.Windows.Forms.ToolStripMenuItem opçõesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem voltarAoMenuPrincipalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem encerrarProgramaToolStripMenuItem;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxIdDisciplina;
+        private System.Windows.Forms.TextBox textBoxNomeDaDisciplina;
         private System.Windows.Forms.Button buttonAddDisciplina;
         private System.Windows.Forms.Button buttonRemoverDisciplina;
         private System.Windows.Forms.Button button3;
