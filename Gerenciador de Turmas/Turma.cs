@@ -6,27 +6,34 @@ using System.Threading.Tasks;
 
 namespace Gerenciador_de_Turmas
 {
-    internal class Turma
+    public class Turma : IRegistro
     {
-        private double id;
+        private static int nextId = 1;
+
+        private int id;
         private string nomeTurma;
 
         public Turma()
         {
-            id = 0;
+            id = nextId++;
             nomeTurma = "";
         }
 
-        public Turma(double id, string nomeTurma)
+        public Turma(string nomeTurma, int id = -1)
         {
-            this.id = id;
+            this.id = id >= 0 ? id : nextId++;
             this.nomeTurma = nomeTurma;
         }
 
-        public double getId() { return id; }
+        public static int getNextId()
+        {
+            return nextId;
+        }
+
+        public int getId() { return id; }
         public string getNomeTurma() { return nomeTurma; }
 
-        public void setId(double id) { this.id = id; }
+        public void setId(int id) { this.id = id; }
         public void setNomeTurma(string nomeTurma) { this.nomeTurma = nomeTurma; }
 
         public override string ToString()

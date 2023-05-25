@@ -59,6 +59,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Nota.cs" />
+    <Compile Include="TurmaRepo.cs" />
     <Compile Include="TurmasForm.cs">
       <SubType>Form</SubType>
     </Compile>
