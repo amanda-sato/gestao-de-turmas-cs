@@ -4,29 +4,45 @@ using System.Windows.Forms;
 
 namespace Gerenciador_de_Turmas
 {
-    public partial class DisciplinasForm : BaseForm
+    public partial class DisciplinasForm : Form
     {
         public static DisciplinasForm instance;
 
-        public DisciplinasForm() : base(MainForm.instance)
+        public DisciplinasForm()
         {
+            InitializeComponent();
+            init();
+
             instance = this;
             carregaEntidade();
             resetaForm();
         }
 
-        public override string getNomeEntidade()
+        public void init()
+        {
+            Text = $"Menu {getNomeEntidade()}";
+
+            labelID.Text = "ID";
+            labelNome.Text = $"Nome {getNomeEntidade()}";
+            labelList.Text = $"{getNomeEntidadePlural()} Disponiveis";
+
+            buttonSalvar.Text = $"Adicionar {getNomeEntidade()}";
+            buttonRemover.Text = $"Remover {getNomeEntidade()}";
+        }
+
+
+        public string getNomeEntidade()
         {
             return "Disciplina";
         }
 
-        public override string getNomeEntidadePlural()
+        public string getNomeEntidadePlural()
         {
             return "Disciplinas";
         }
 
 
-        protected override void carregaEntidade()
+        protected void carregaEntidade()
         {
             foreach (Disciplina d in MainForm.instance.state.disciplinas)
             {
@@ -34,7 +50,29 @@ namespace Gerenciador_de_Turmas
             }
         }
 
-        protected override void salvar(Object sender, EventArgs e)
+        protected void voltarAoMenuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainForm.instance.Focus();
+            this.Close();
+        }
+
+        protected void encerrarProgramaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        protected void buttonSalvar_Click(object sender, EventArgs e)
+        {
+            if (listBox.SelectedItem == null)
+            {
+                salvar(sender, e);
+                return;
+            }
+
+            editar(sender, e);
+        }
+
+        protected void salvar(Object sender, EventArgs e)
         {
             try
             {
@@ -57,7 +95,7 @@ namespace Gerenciador_de_Turmas
             }
         }
 
-        protected override void editar(object sender, EventArgs e)
+        protected void editar(object sender, EventArgs e)
         {
             try
             {
@@ -76,7 +114,7 @@ namespace Gerenciador_de_Turmas
             }
         }
 
-        protected override void listBox_SingleClick(object sender, EventArgs e)
+        protected void listBox_SingleClick(object sender, EventArgs e)
         {
             if (listBox.SelectedItem == null) return;
 
@@ -88,7 +126,7 @@ namespace Gerenciador_de_Turmas
             textBoxNome.Text = selectedDisciplina.getNomeDisc();
         }
 
-        protected override void buttonRemover_Click(object sender, EventArgs e)
+        protected void buttonRemover_Click(object sender, EventArgs e)
         {
             if (listBox.SelectedItem == null)
             {
@@ -104,12 +142,26 @@ namespace Gerenciador_de_Turmas
             resetaForm();
         }
 
-        protected override void resetaForm()
+        protected void buttonLimpar_Click(object sender, EventArgs e)
+        {
+            resetaForm();
+        }
+
+        protected void resetaForm()
         {
             textBoxId.Text = Disciplina.getNextId().ToString();
             textBoxNome.Clear();
 
-            base.resetaForm();
+            listBox.ClearSelected();
+
+            buttonSalvar.Text = $"Adicionar {getNomeEntidade()}";
+            buttonRemover.Enabled = false;
+        }
+
+        protected void modoEdicao()
+        {
+            buttonRemover.Enabled = true;
+            buttonSalvar.Text = $"Editar {getNomeEntidade()}";
         }
     }
 }
