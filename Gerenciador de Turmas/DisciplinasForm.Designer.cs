@@ -161,7 +161,7 @@
             this.buttonLimpar.UseVisualStyleBackColor = true;
             this.buttonLimpar.Click += new System.EventHandler(this.buttonLimpar_Click);
             // 
-            // BaseForm
+            // DisciplinasForm
             // 
             this.AcceptButton = this.buttonSalvar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,6 +181,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "DisciplinasForm";
             this.Text = "Menu";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DisciplinasForm_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

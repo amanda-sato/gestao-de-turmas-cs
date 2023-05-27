@@ -164,5 +164,10 @@ namespace Gerenciador_de_Turmas
             buttonSalvar.Text = $"Adicionar {getNomeEntidade()}";
             buttonRemover.Enabled = false;
         }
+
+        private void TurmasForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            instance = null;
+        }
     }
 }

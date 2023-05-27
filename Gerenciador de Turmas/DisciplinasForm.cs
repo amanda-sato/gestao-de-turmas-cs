@@ -162,5 +162,10 @@ namespace Gerenciador_de_Turmas
             buttonRemover.Enabled = true;
             buttonSalvar.Text = $"Editar {getNomeEntidade()}";
         }
+
+        private void DisciplinasForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            instance = null;
+        }
     }
 }
