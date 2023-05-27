@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listDisciplinas = new System.Windows.Forms.ListBox();
+            this.listBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,21 +38,21 @@
             this.encerrarProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBoxIdDisciplina = new System.Windows.Forms.TextBox();
             this.textBoxNomeDaDisciplina = new System.Windows.Forms.TextBox();
-            this.buttonAddDisciplina = new System.Windows.Forms.Button();
-            this.buttonRemoverDisciplina = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonRemover = new System.Windows.Forms.Button();
+            this.buttonEditar = new System.Windows.Forms.Button();
+            this.buttonLimpar = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listDisciplinas
+            // listBox
             // 
-            this.listDisciplinas.FormattingEnabled = true;
-            this.listDisciplinas.Location = new System.Drawing.Point(43, 84);
-            this.listDisciplinas.Name = "listDisciplinas";
-            this.listDisciplinas.Size = new System.Drawing.Size(232, 290);
-            this.listDisciplinas.TabIndex = 0;
-            this.listDisciplinas.Click += new System.EventHandler(this.listAlunos_singleClick);
+            this.listBox.FormattingEnabled = true;
+            this.listBox.Location = new System.Drawing.Point(43, 84);
+            this.listBox.Name = "listBox";
+            this.listBox.Size = new System.Drawing.Size(232, 290);
+            this.listBox.TabIndex = 0;
+            this.listBox.Click += new System.EventHandler(this.listAlunos_singleClick);
             // 
             // label1
             // 
@@ -116,6 +116,7 @@
             // 
             // textBoxIdDisciplina
             // 
+            this.textBoxIdDisciplina.Enabled = false;
             this.textBoxIdDisciplina.Location = new System.Drawing.Point(386, 64);
             this.textBoxIdDisciplina.Name = "textBoxIdDisciplina";
             this.textBoxIdDisciplina.Size = new System.Drawing.Size(134, 20);
@@ -128,61 +129,63 @@
             this.textBoxNomeDaDisciplina.Size = new System.Drawing.Size(134, 20);
             this.textBoxNomeDaDisciplina.TabIndex = 6;
             // 
-            // buttonAddDisciplina
+            // buttonAdd
             // 
-            this.buttonAddDisciplina.Location = new System.Drawing.Point(427, 175);
-            this.buttonAddDisciplina.Name = "buttonAddDisciplina";
-            this.buttonAddDisciplina.Size = new System.Drawing.Size(135, 39);
-            this.buttonAddDisciplina.TabIndex = 7;
-            this.buttonAddDisciplina.Text = "Adicionar Disciplina";
-            this.buttonAddDisciplina.UseVisualStyleBackColor = true;
-            this.buttonAddDisciplina.Click += new System.EventHandler(this.buttonAddDisciplina_Click);
+            this.buttonAdd.Location = new System.Drawing.Point(427, 175);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(135, 39);
+            this.buttonAdd.TabIndex = 7;
+            this.buttonAdd.Text = "Adicionar Disciplina";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAddDisciplina_Click);
             // 
-            // buttonRemoverDisciplina
+            // buttonRemover
             // 
-            this.buttonRemoverDisciplina.Location = new System.Drawing.Point(427, 235);
-            this.buttonRemoverDisciplina.Name = "buttonRemoverDisciplina";
-            this.buttonRemoverDisciplina.Size = new System.Drawing.Size(135, 35);
-            this.buttonRemoverDisciplina.TabIndex = 8;
-            this.buttonRemoverDisciplina.Text = "Remover Disciplina";
-            this.buttonRemoverDisciplina.UseVisualStyleBackColor = true;
-            this.buttonRemoverDisciplina.Click += new System.EventHandler(this.buttonRemoverDisciplina_Click);
+            this.buttonRemover.Enabled = false;
+            this.buttonRemover.Location = new System.Drawing.Point(427, 235);
+            this.buttonRemover.Name = "buttonRemover";
+            this.buttonRemover.Size = new System.Drawing.Size(135, 35);
+            this.buttonRemover.TabIndex = 8;
+            this.buttonRemover.Text = "Remover Disciplina";
+            this.buttonRemover.UseVisualStyleBackColor = true;
+            this.buttonRemover.Click += new System.EventHandler(this.buttonRemoverDisciplina_Click);
             // 
-            // button3
+            // buttonEditar
             // 
-            this.button3.Location = new System.Drawing.Point(427, 288);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(135, 35);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Editar Disciplina";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.buttonEditarDisciplina_Click);
+            this.buttonEditar.Enabled = false;
+            this.buttonEditar.Location = new System.Drawing.Point(427, 288);
+            this.buttonEditar.Name = "buttonEditar";
+            this.buttonEditar.Size = new System.Drawing.Size(135, 35);
+            this.buttonEditar.TabIndex = 9;
+            this.buttonEditar.Text = "Editar Disciplina";
+            this.buttonEditar.UseVisualStyleBackColor = true;
+            this.buttonEditar.Click += new System.EventHandler(this.buttonEditarDisciplina_Click);
             // 
-            // button1
+            // buttonLimpar
             // 
-            this.button1.Location = new System.Drawing.Point(431, 339);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 34);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Limpar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonLimpar.Location = new System.Drawing.Point(427, 339);
+            this.buttonLimpar.Name = "buttonLimpar";
+            this.buttonLimpar.Size = new System.Drawing.Size(134, 34);
+            this.buttonLimpar.TabIndex = 10;
+            this.buttonLimpar.Text = "Limpar";
+            this.buttonLimpar.UseVisualStyleBackColor = true;
+            this.buttonLimpar.Click += new System.EventHandler(this.buttonLimpar_Click);
             // 
             // DisciplinasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(649, 399);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.buttonRemoverDisciplina);
-            this.Controls.Add(this.buttonAddDisciplina);
+            this.Controls.Add(this.buttonLimpar);
+            this.Controls.Add(this.buttonEditar);
+            this.Controls.Add(this.buttonRemover);
+            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.textBoxNomeDaDisciplina);
             this.Controls.Add(this.textBoxIdDisciplina);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listDisciplinas);
+            this.Controls.Add(this.listBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "DisciplinasForm";
@@ -196,7 +199,7 @@
 
         #endregion
 
-        public System.Windows.Forms.ListBox listDisciplinas;
+        public System.Windows.Forms.ListBox listBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -206,9 +209,9 @@
         private System.Windows.Forms.ToolStripMenuItem encerrarProgramaToolStripMenuItem;
         private System.Windows.Forms.TextBox textBoxIdDisciplina;
         private System.Windows.Forms.TextBox textBoxNomeDaDisciplina;
-        private System.Windows.Forms.Button buttonAddDisciplina;
-        private System.Windows.Forms.Button buttonRemoverDisciplina;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonRemover;
+        private System.Windows.Forms.Button buttonEditar;
+        private System.Windows.Forms.Button buttonLimpar;
     }
 }
