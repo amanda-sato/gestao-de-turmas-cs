@@ -47,10 +47,16 @@ namespace Gerenciador_de_Turmas
             state.disciplinas.Add(new Disciplina("Programação"));
             state.disciplinas.Add(new Disciplina("Biologia"));
 
-            state.turmas.Add(new Turma("Desporto"));
-            state.turmas.Add(new Turma("Tecnologias da informacao"));
-            state.turmas.Add(new Turma("Artes II"));
-            state.turmas.Add(new Turma("Historia"));
+            state.turmas.Add(new Turma("A"));
+            state.turmas.Add(new Turma("B"));
+            state.turmas.Add(new Turma("C"));
+            state.turmas.Add(new Turma("D"));
+
+            state.alunos.Add(new Aluno("Jose Emanuel", "M", 1));
+            state.alunos.Add(new Aluno("Maria Joaquina", "F", 1));
+            state.alunos.Add(new Aluno("Emilia Clark", "F", 2));
+            state.alunos.Add(new Aluno("Joaquim Soares", "M", 2));
+            state.alunos.Add(new Aluno("Xinforinfula Mercedes", "F", 3));
 
             return state;
         }

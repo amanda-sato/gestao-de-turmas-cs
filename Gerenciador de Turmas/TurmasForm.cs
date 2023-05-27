@@ -93,19 +93,7 @@ namespace Gerenciador_de_Turmas
 
         protected void listTurmas_DoubleClick(object sender, EventArgs e)
         {
-            if (listBox.SelectedItems !=  null)
-            {
-                AlunosTurmaForm form = new AlunosTurmaForm();
-                form.Show();
-
-                if (listBox.SelectedItem != null)
-                {
-                    Turma selectedDisciplina = listBox.SelectedItem as Turma;
-
-                    AlunosTurmaForm.instance.textBox4.Text = selectedDisciplina.getId().ToString();
-                    AlunosTurmaForm.instance.textBox5.Text = selectedDisciplina.getNomeTurma();
-                }
-            }
+            new AlunosTurmaForm(listBox.SelectedItem as Turma).Show();
         }
 
         protected void listBox_SingleClick(object sender, EventArgs e)

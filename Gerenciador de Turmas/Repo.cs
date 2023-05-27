@@ -39,5 +39,18 @@ namespace Gerenciador_de_Turmas
 
             _list[index] = item;
         }
+
+        public T GetPorId(int id)
+        {
+            foreach (T item in _list)
+            {
+                if (item.getId() == id)
+                {
+                    return item;
+                }
+            }
+
+            throw new System.Exception($"Não há item com id {id}");
+        }
     }
 }

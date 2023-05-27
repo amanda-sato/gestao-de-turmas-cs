@@ -10,11 +10,13 @@ namespace Gerenciador_de_Turmas
     {
         public DisciplinaRepo disciplinas;
         public TurmaRepo turmas;
+        public AlunoRepo alunos;
 
         public State() 
         {
             disciplinas = new DisciplinaRepo();
             turmas = new TurmaRepo();
+            alunos = new AlunoRepo();
         }
     }
 }
