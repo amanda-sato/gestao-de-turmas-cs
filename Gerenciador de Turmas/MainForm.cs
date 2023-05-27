@@ -27,15 +27,17 @@ namespace Gerenciador_de_Turmas
             state.disciplinas.Add(new Disciplina("Biologia"));
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void buttonTurmas_Click(object sender, EventArgs e)
         {
+            if (TurmasForm.instance == null)
+            {
+                TurmasForm form = new TurmasForm();
+                form.Show();
 
-        }
+                return;
+            }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            TurmasForm form = new TurmasForm();
-            form.Show();
+            TurmasForm.instance.Focus();
         }
 
         private void fecharProgramaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -43,10 +45,17 @@ namespace Gerenciador_de_Turmas
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonDisciplinas_Click(object sender, EventArgs e)
         {
-            DisciplinasForm form = new DisciplinasForm();
-            form.Show();
+            if (DisciplinasForm.instance == null)
+            {
+                DisciplinasForm form = new DisciplinasForm();
+                form.Show();
+
+                return;
+            }
+
+            DisciplinasForm.instance.Focus();
         }
     }
 }

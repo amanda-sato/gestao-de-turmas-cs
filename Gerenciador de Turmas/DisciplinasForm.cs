@@ -6,10 +6,11 @@ namespace Gerenciador_de_Turmas
 {
     public partial class DisciplinasForm : BaseForm
     {
-        public new static DisciplinasForm instance;
+        public static DisciplinasForm instance;
 
         public DisciplinasForm() : base(MainForm.instance)
         {
+            instance = this;
             carregaEntidade();
             resetaForm();
         }

@@ -5,13 +5,11 @@ namespace EstruturasBase
 {
     public partial class BaseForm : Form
     {
-        public static BaseForm instance;
         public Form mainForm;
 
         public BaseForm()
         {
             init();
-
         }
 
         public BaseForm(Form mainForm = null)
@@ -27,7 +25,6 @@ namespace EstruturasBase
         public void init()
         {
             InitializeComponent();
-            instance = this;
 
             Text = $"Menu {getNomeEntidade()}";
 
