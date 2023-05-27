@@ -15,7 +15,6 @@ namespace Gerenciador_de_Turmas
         {
             disciplinas = new DisciplinaRepo();
             turmas = new TurmaRepo();
-
         }
     }
 }

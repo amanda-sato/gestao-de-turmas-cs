@@ -15,16 +15,12 @@ namespace Gerenciador_de_Turmas
         public static MainForm instance;
         public State state;
 
-        public MainForm()
+        public MainForm(State nState)
         {
             InitializeComponent();
             instance = this;
 
-            state = new State();
-
-            state.disciplinas.Add(new Disciplina("Matemática"));
-            state.disciplinas.Add(new Disciplina("Programação"));
-            state.disciplinas.Add(new Disciplina("Biologia"));
+            state = nState;
         }
 
         private void buttonTurmas_Click(object sender, EventArgs e)
