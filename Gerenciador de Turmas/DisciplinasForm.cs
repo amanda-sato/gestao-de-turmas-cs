@@ -1,5 +1,4 @@
-﻿using EstruturasBase;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace Gerenciador_de_Turmas
@@ -44,7 +43,7 @@ namespace Gerenciador_de_Turmas
 
         protected void carregaEntidade()
         {
-            foreach (Disciplina d in MainForm.instance.state.disciplinas)
+            foreach (Disciplina d in Program.GetState().disciplinas)
             {
                 listBox.Items.Add(d);
             }
@@ -52,7 +51,7 @@ namespace Gerenciador_de_Turmas
 
         protected void voltarAoMenuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MainForm.instance.Focus();
+            Program.GetMainForm().Focus();
             this.Close();
         }
 

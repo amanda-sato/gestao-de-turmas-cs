@@ -9,6 +9,9 @@ namespace Gerenciador_de_Turmas
 {
     internal static class Program
     {
+        private static State state;
+        private static MainForm mainForm;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -17,11 +20,28 @@ namespace Gerenciador_de_Turmas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm(createState()));
+            Application.Run(CreateMainForm());
         }
-        static State createState()
+
+        public static MainForm GetMainForm()
         {
-            State state = new State();
+            return mainForm;
+        }
+
+        static MainForm CreateMainForm()
+        {
+            mainForm = new MainForm(CreateState());
+            return mainForm;
+        }
+
+        public static State GetState()
+        {
+            return state;
+        }
+
+        static State CreateState()
+        {
+            state = new State();
 
             state.disciplinas.Add(new Disciplina("Matemática"));
             state.disciplinas.Add(new Disciplina("Programação"));

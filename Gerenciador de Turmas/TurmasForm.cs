@@ -1,40 +1,74 @@
-﻿using EstruturasBase;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace Gerenciador_de_Turmas
 {
-    public partial class TurmasForm : BaseForm
+    public partial class TurmasForm : Form
     {
         public static TurmasForm instance;
-        public TurmasForm() : base(MainForm.instance)
+        public TurmasForm()
         {
             InitializeComponent();
             instance = this;
 
+            init();
             carregaEntidade();
             resetaForm();
         }
 
-        public override string getNomeEntidade()
+        public void init()
+        {
+            Text = $"Menu {getNomeEntidade()}";
+
+            labelID.Text = "ID";
+            labelNome.Text = $"Nome {getNomeEntidade()}";
+            labelList.Text = $"{getNomeEntidadePlural()} Disponiveis";
+
+            buttonSalvar.Text = $"Adicionar {getNomeEntidade()}";
+            buttonRemover.Text = $"Remover {getNomeEntidade()}";
+        }
+
+        public string getNomeEntidade()
         {
             return "Turma";
         }
 
-        public override string getNomeEntidadePlural()
+        public string getNomeEntidadePlural()
         {
             return "Turmas";
         }
 
-        protected override void carregaEntidade()
+        protected void carregaEntidade()
         {
-            foreach (Turma t in MainForm.instance.state.turmas)
+            foreach (Turma t in Program.GetState().turmas)
             {
                 listBox.Items.Add(t);
             }
         }
 
-        protected override void salvar(object sender, EventArgs e)
+        protected void voltarAoMenuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainForm.instance.Focus();
+            this.Close();
+        }
+
+        protected void encerrarProgramaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        protected void buttonSalvar_Click(object sender, EventArgs e)
+        {
+            if (listBox.SelectedItem == null)
+            {
+                salvar(sender, e);
+                return;
+            }
+
+            editar(sender, e);
+        }
+
+        protected void salvar(object sender, EventArgs e)
         {
             try
             {
@@ -74,7 +108,7 @@ namespace Gerenciador_de_Turmas
             }
         }
 
-        protected override void listBox_SingleClick(object sender, EventArgs e)
+        protected void listBox_SingleClick(object sender, EventArgs e)
         {
             if (listBox.SelectedItem == null) return;
 
@@ -86,7 +120,7 @@ namespace Gerenciador_de_Turmas
             textBoxId.Text = selectedTurmas.getId().ToString();
         }
 
-        protected override void editar(object sender, EventArgs e)
+        protected void editar(object sender, EventArgs e)
         {
             Turma selectedTurma = listBox.SelectedItem as Turma;
 
@@ -98,7 +132,7 @@ namespace Gerenciador_de_Turmas
             resetaForm();
         }
 
-        protected override void buttonRemover_Click(object sender, EventArgs e)
+        protected void buttonRemover_Click(object sender, EventArgs e)
         {
             Turma selectedTurmas = listBox.SelectedItem as Turma;
 
@@ -109,34 +143,26 @@ namespace Gerenciador_de_Turmas
             resetaForm();
         }
 
-        protected override void resetaForm()
+        protected void buttonLimpar_Click(object sender, EventArgs e)
+        {
+            resetaForm();
+        }
+
+        protected void modoEdicao()
+        {
+            buttonRemover.Enabled = true;
+            buttonSalvar.Text = $"Editar {getNomeEntidade()}";
+        }
+
+        protected void resetaForm()
         {
             textBoxId.Text = Turma.getNextId().ToString();
             textBoxNome.Clear();
 
-            base.resetaForm();
-        }
+            listBox.ClearSelected();
 
-        private new void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // listBox
-            // 
-            this.listBox.DoubleClick += new System.EventHandler(this.listTurmas_DoubleClick);
-            // 
-            // textBoxId
-            // 
-            this.textBoxId.Location = new System.Drawing.Point(466, 64);
-            // 
-            // TurmasForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(649, 399);
-            this.Name = "TurmasForm";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            buttonSalvar.Text = $"Adicionar {getNomeEntidade()}";
+            buttonRemover.Enabled = false;
         }
     }
 }

@@ -124,11 +124,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\EstruturasBase\EstruturasBase.csproj">
-      <Project>{e5032c7e-528b-4052-aa1a-c1bf5578dd40}</Project>
-      <Name>EstruturasBase</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
