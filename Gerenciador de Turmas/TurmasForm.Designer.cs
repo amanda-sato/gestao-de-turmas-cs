@@ -52,6 +52,7 @@
             this.listBox.Size = new System.Drawing.Size(232, 290);
             this.listBox.TabIndex = 0;
             this.listBox.Click += new System.EventHandler(this.listBox_SingleClick);
+            this.listBox.DoubleClick += new System.EventHandler(this.listTurmas_DoubleClick);
             // 
             // labelList
             // 
@@ -161,7 +162,7 @@
             this.buttonLimpar.UseVisualStyleBackColor = true;
             this.buttonLimpar.Click += new System.EventHandler(this.buttonLimpar_Click);
             // 
-            // BaseForm
+            // TurmasForm
             // 
             this.AcceptButton = this.buttonSalvar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,7 +180,7 @@
             this.Controls.Add(this.listBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "BaseForm";
+            this.Name = "TurmasForm";
             this.Text = "Menu";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
