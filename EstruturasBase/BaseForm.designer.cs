@@ -1,6 +1,6 @@
-﻿namespace Gerenciador_de_Turmas
+﻿namespace EstruturasBase
 {
-    partial class TurmasForm
+    public partial class BaseForm
     {
         /// <summary>
         /// Required designer variable.

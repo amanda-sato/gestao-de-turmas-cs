@@ -10,28 +10,57 @@ namespace Gerenciador_de_Turmas
         public DisciplinasForm()
         {
             InitializeComponent();
+            init();
+
             instance = this;
-
-            foreach (Disciplina d in MainForm.instance.state.disciplinas)
-            {
-                listBox.Items.Add(d);
-            }
-
+            carregaEntidade();
             resetaForm();
         }
 
-        private void voltarAoMenuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
+        public void init()
         {
-            MainForm.instance.Focus();
+            Text = $"Menu {getNomeEntidade()}";
+
+            labelID.Text = "ID";
+            labelNome.Text = $"Nome {getNomeEntidade()}";
+            labelList.Text = $"{getNomeEntidadePlural()} Disponiveis";
+
+            buttonSalvar.Text = $"Adicionar {getNomeEntidade()}";
+            buttonRemover.Text = $"Remover {getNomeEntidade()}";
+        }
+
+
+        public string getNomeEntidade()
+        {
+            return "Disciplina";
+        }
+
+        public string getNomeEntidadePlural()
+        {
+            return "Disciplinas";
+        }
+
+
+        protected void carregaEntidade()
+        {
+            foreach (Disciplina d in Program.GetState().disciplinas)
+            {
+                listBox.Items.Add(d);
+            }
+        }
+
+        protected void voltarAoMenuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.GetMainForm().Focus();
             this.Close();
         }
 
-        private void encerrarProgramaToolStripMenuItem_Click(object sender, EventArgs e)
+        protected void encerrarProgramaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void buttonSalvar_Click(object sender, EventArgs e)
+        protected void buttonSalvar_Click(object sender, EventArgs e)
         {
             if (listBox.SelectedItem == null)
             {
@@ -42,14 +71,14 @@ namespace Gerenciador_de_Turmas
             editar(sender, e);
         }
 
-        private void salvar(Object sender, EventArgs e)
+        protected void salvar(Object sender, EventArgs e)
         {
             try
             {
                 Disciplina novaDisciplina = new Disciplina();
 
-                int id = int.Parse(textBoxIdDisciplina.Text);
-                string nomeDisc = textBoxNomeDaDisciplina.Text;
+                int id = int.Parse(textBoxId.Text);
+                string nomeDisc = textBoxNome.Text;
 
                 novaDisciplina.setId(id);
                 novaDisciplina.setNomeDisc(nomeDisc);
@@ -65,13 +94,13 @@ namespace Gerenciador_de_Turmas
             }
         }
 
-        private void editar(object sender, EventArgs e)
+        protected void editar(object sender, EventArgs e)
         {
             try
             {
                 Disciplina selectedDisciplina = listBox.SelectedItem as Disciplina;
 
-                selectedDisciplina.setNomeDisc(textBoxNomeDaDisciplina.Text);
+                selectedDisciplina.setNomeDisc(textBoxNome.Text);
                 MainForm.instance.state.disciplinas.Atualizar(selectedDisciplina);
 
                 listBox.Items[listBox.SelectedIndex] = selectedDisciplina;
@@ -84,7 +113,7 @@ namespace Gerenciador_de_Turmas
             }
         }
 
-        private void listBox_SingleClick(object sender, EventArgs e)
+        protected void listBox_SingleClick(object sender, EventArgs e)
         {
             if (listBox.SelectedItem == null) return;
 
@@ -92,11 +121,11 @@ namespace Gerenciador_de_Turmas
 
             Disciplina selectedDisciplina = listBox.SelectedItem as Disciplina;
 
-            textBoxIdDisciplina.Text = selectedDisciplina.getId().ToString();
-            textBoxNomeDaDisciplina.Text = selectedDisciplina.getNomeDisc();
+            textBoxId.Text = selectedDisciplina.getId().ToString();
+            textBoxNome.Text = selectedDisciplina.getNomeDisc();
         }
 
-        private void buttonRemover_Click(object sender, EventArgs e)
+        protected void buttonRemover_Click(object sender, EventArgs e)
         {
             if (listBox.SelectedItem == null)
             {
@@ -112,26 +141,26 @@ namespace Gerenciador_de_Turmas
             resetaForm();
         }
 
-        private void buttonLimpar_Click(object sender, EventArgs e)
+        protected void buttonLimpar_Click(object sender, EventArgs e)
         {
             resetaForm();
         }
 
-        private void resetaForm()
+        protected void resetaForm()
         {
-            textBoxIdDisciplina.Text = Disciplina.getNextId().ToString();
-            textBoxNomeDaDisciplina.Clear();
+            textBoxId.Text = Disciplina.getNextId().ToString();
+            textBoxNome.Clear();
 
             listBox.ClearSelected();
 
-            buttonSalvar.Text = "Adicionar Disciplina";
+            buttonSalvar.Text = $"Adicionar {getNomeEntidade()}";
             buttonRemover.Enabled = false;
         }
 
-        private void modoEdicao()
+        protected void modoEdicao()
         {
             buttonRemover.Enabled = true;
-            buttonSalvar.Text = "Editar Disciplina";
+            buttonSalvar.Text = $"Editar {getNomeEntidade()}";
         }
     }
 }

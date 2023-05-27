@@ -15,27 +15,25 @@ namespace Gerenciador_de_Turmas
         public static MainForm instance;
         public State state;
 
-        public MainForm()
+        public MainForm(State nState)
         {
             InitializeComponent();
             instance = this;
 
-            state = new State();
-
-            state.disciplinas.Add(new Disciplina("Matemática"));
-            state.disciplinas.Add(new Disciplina("Programação"));
-            state.disciplinas.Add(new Disciplina("Biologia"));
+            state = nState;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void buttonTurmas_Click(object sender, EventArgs e)
         {
+            if (TurmasForm.instance == null)
+            {
+                TurmasForm form = new TurmasForm();
+                form.Show();
 
-        }
+                return;
+            }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            TurmasForm form = new TurmasForm();
-            form.Show();
+            TurmasForm.instance.Focus();
         }
 
         private void fecharProgramaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -43,10 +41,17 @@ namespace Gerenciador_de_Turmas
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonDisciplinas_Click(object sender, EventArgs e)
         {
-            DisciplinasForm form = new DisciplinasForm();
-            form.Show();
+            if (DisciplinasForm.instance == null)
+            {
+                DisciplinasForm form = new DisciplinasForm();
+                form.Show();
+
+                return;
+            }
+
+            DisciplinasForm.instance.Focus();
         }
     }
 }

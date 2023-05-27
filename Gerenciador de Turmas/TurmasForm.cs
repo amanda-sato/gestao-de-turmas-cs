@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gerenciador_de_Turmas
@@ -18,48 +11,79 @@ namespace Gerenciador_de_Turmas
             InitializeComponent();
             instance = this;
 
-            foreach (Turma t in MainForm.instance.state.turmas)
-            {
-                listTurmas.Items.Add(t);
-            }
-
+            init();
+            carregaEntidade();
             resetaForm();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        public void init()
         {
+            Text = $"Menu {getNomeEntidade()}";
 
+            labelID.Text = "ID";
+            labelNome.Text = $"Nome {getNomeEntidade()}";
+            labelList.Text = $"{getNomeEntidadePlural()} Disponiveis";
+
+            buttonSalvar.Text = $"Adicionar {getNomeEntidade()}";
+            buttonRemover.Text = $"Remover {getNomeEntidade()}";
         }
 
-        private void voltarAoMenuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
+        public string getNomeEntidade()
+        {
+            return "Turma";
+        }
+
+        public string getNomeEntidadePlural()
+        {
+            return "Turmas";
+        }
+
+        protected void carregaEntidade()
+        {
+            foreach (Turma t in Program.GetState().turmas)
+            {
+                listBox.Items.Add(t);
+            }
+        }
+
+        protected void voltarAoMenuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MainForm.instance.Focus();
             this.Close();
-
         }
 
-        private void fecharProgramaToolStripMenuItem_Click(object sender, EventArgs e)
+        protected void encerrarProgramaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            Application.Exit();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        protected void buttonSalvar_Click(object sender, EventArgs e)
+        {
+            if (listBox.SelectedItem == null)
+            {
+                salvar(sender, e);
+                return;
+            }
+
+            editar(sender, e);
+        }
+
+        protected void salvar(object sender, EventArgs e)
         {
             try
             {
-                Turma turma1 = new Turma();
+                Turma novaTurma = new Turma();
 
-                string nomeTurma = textBox1.Text;
-                int id = int.Parse(textBox2.Text);
+                string nomeTurma = textBoxNome.Text;
+                int id = int.Parse(textBoxId.Text);
                 
-                turma1.setId(id);
-                turma1.setNomeTurma(nomeTurma);
+                novaTurma.setId(id);
+                novaTurma.setNomeTurma(nomeTurma);
 
-                MainForm.instance.state.turmas.Add(turma1);
-                listTurmas.Items.Add(turma1);
+                MainForm.instance.state.turmas.Add(novaTurma);
+                listBox.Items.Add(novaTurma);
 
                 resetaForm();
-
             }
             catch (Exception ex)
             {
@@ -67,92 +91,78 @@ namespace Gerenciador_de_Turmas
             }
         }
 
-        private void listTurmas_DoubleClick(object sender, EventArgs e)
+        protected void listTurmas_DoubleClick(object sender, EventArgs e)
         {
-            if (listTurmas.SelectedItems !=  null)
+            if (listBox.SelectedItems !=  null)
             {
                 AlunosTurmaForm form = new AlunosTurmaForm();
                 form.Show();
 
-                if (listTurmas.SelectedItem != null)
+                if (listBox.SelectedItem != null)
                 {
-                    Turma selectedDisciplina = listTurmas.SelectedItem as Turma;
+                    Turma selectedDisciplina = listBox.SelectedItem as Turma;
 
                     AlunosTurmaForm.instance.textBox4.Text = selectedDisciplina.getId().ToString();
                     AlunosTurmaForm.instance.textBox5.Text = selectedDisciplina.getNomeTurma();
-
                 }
-
-
             }
-
         }
 
-        private void listTurmas_singleClick(object sender, EventArgs e)
+        protected void listBox_SingleClick(object sender, EventArgs e)
         {
-            if (listTurmas.SelectedItem != null)
+            if (listBox.SelectedItem == null) return;
 
-            {
-                Turma selectedTurmas = listTurmas.SelectedItem as Turma;
+            modoEdicao();
 
-                textBox2.Text = selectedTurmas.getId().ToString();
-                textBox1.Text = selectedTurmas.getNomeTurma();
+            Turma selectedTurmas = listBox.SelectedItem as Turma;
 
-            }
-            
+            textBoxNome.Text = selectedTurmas.getNomeTurma();
+            textBoxId.Text = selectedTurmas.getId().ToString();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        protected void editar(object sender, EventArgs e)
         {
-            if (listTurmas.SelectedItem == null)
-            {
-                MessageBox.Show("Selecione uma Turma!");
-                return;
+            Turma selectedTurma = listBox.SelectedItem as Turma;
 
-            }   
-            
-            Turma selectedTurmas = listTurmas.SelectedItem as Turma;
+            selectedTurma.setNomeTurma(textBoxNome.Text);
+            MainForm.instance.state.turmas.Atualizar(selectedTurma);
+
+            listBox.Items[listBox.SelectedIndex] = selectedTurma;
+
+            resetaForm();
+        }
+
+        protected void buttonRemover_Click(object sender, EventArgs e)
+        {
+            Turma selectedTurmas = listBox.SelectedItem as Turma;
 
             MainForm.instance.state.turmas.Remove(selectedTurmas);
 
-            listTurmas.Items.Remove(selectedTurmas);
+            listBox.Items.Remove(selectedTurmas);
 
             resetaForm();
         }
 
-
-        private void resetaForm()
-        {
-            textBox2.Text = Turma.getNextId().ToString();
-            textBox1.Clear();
-        }
-
-        private void listTurmas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
+        protected void buttonLimpar_Click(object sender, EventArgs e)
         {
             resetaForm();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        protected void modoEdicao()
         {
-            if (listTurmas.SelectedItem == null)
-            {
-                MessageBox.Show("Selecione uma Turma!");
-                return;
-            }
+            buttonRemover.Enabled = true;
+            buttonSalvar.Text = $"Editar {getNomeEntidade()}";
+        }
 
-            Turma selectedTurma = listTurmas.SelectedItem as Turma;
+        protected void resetaForm()
+        {
+            textBoxId.Text = Turma.getNextId().ToString();
+            textBoxNome.Clear();
 
-            selectedTurma.setNomeTurma(textBox1.Text);
-            MainForm.instance.state.turmas.Atualizar(selectedTurma);
+            listBox.ClearSelected();
 
-            listTurmas.Items[listTurmas.SelectedIndex] = selectedTurma;
-
-            resetaForm();
+            buttonSalvar.Text = $"Adicionar {getNomeEntidade()}";
+            buttonRemover.Enabled = false;
         }
     }
 }
