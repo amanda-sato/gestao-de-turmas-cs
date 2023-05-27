@@ -38,9 +38,8 @@
             this.encerrarProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBoxIdDisciplina = new System.Windows.Forms.TextBox();
             this.textBoxNomeDaDisciplina = new System.Windows.Forms.TextBox();
-            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonSalvar = new System.Windows.Forms.Button();
             this.buttonRemover = new System.Windows.Forms.Button();
-            this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonLimpar = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +51,7 @@
             this.listBox.Name = "listBox";
             this.listBox.Size = new System.Drawing.Size(232, 290);
             this.listBox.TabIndex = 0;
-            this.listBox.Click += new System.EventHandler(this.listAlunos_singleClick);
+            this.listBox.Click += new System.EventHandler(this.listBox_SingleClick);
             // 
             // label1
             // 
@@ -129,41 +128,30 @@
             this.textBoxNomeDaDisciplina.Size = new System.Drawing.Size(134, 20);
             this.textBoxNomeDaDisciplina.TabIndex = 6;
             // 
-            // buttonAdd
+            // buttonSalvar
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(427, 175);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(135, 39);
-            this.buttonAdd.TabIndex = 7;
-            this.buttonAdd.Text = "Adicionar Disciplina";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAddDisciplina_Click);
+            this.buttonSalvar.Location = new System.Drawing.Point(427, 175);
+            this.buttonSalvar.Name = "buttonSalvar";
+            this.buttonSalvar.Size = new System.Drawing.Size(135, 39);
+            this.buttonSalvar.TabIndex = 7;
+            this.buttonSalvar.Text = "Adicionar Disciplina";
+            this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
             // buttonRemover
             // 
             this.buttonRemover.Enabled = false;
-            this.buttonRemover.Location = new System.Drawing.Point(427, 235);
+            this.buttonRemover.Location = new System.Drawing.Point(428, 220);
             this.buttonRemover.Name = "buttonRemover";
             this.buttonRemover.Size = new System.Drawing.Size(135, 35);
             this.buttonRemover.TabIndex = 8;
             this.buttonRemover.Text = "Remover Disciplina";
             this.buttonRemover.UseVisualStyleBackColor = true;
-            this.buttonRemover.Click += new System.EventHandler(this.buttonRemoverDisciplina_Click);
-            // 
-            // buttonEditar
-            // 
-            this.buttonEditar.Enabled = false;
-            this.buttonEditar.Location = new System.Drawing.Point(427, 288);
-            this.buttonEditar.Name = "buttonEditar";
-            this.buttonEditar.Size = new System.Drawing.Size(135, 35);
-            this.buttonEditar.TabIndex = 9;
-            this.buttonEditar.Text = "Editar Disciplina";
-            this.buttonEditar.UseVisualStyleBackColor = true;
-            this.buttonEditar.Click += new System.EventHandler(this.buttonEditarDisciplina_Click);
+            this.buttonRemover.Click += new System.EventHandler(this.buttonRemover_Click);
             // 
             // buttonLimpar
             // 
-            this.buttonLimpar.Location = new System.Drawing.Point(427, 339);
+            this.buttonLimpar.Location = new System.Drawing.Point(428, 261);
             this.buttonLimpar.Name = "buttonLimpar";
             this.buttonLimpar.Size = new System.Drawing.Size(134, 34);
             this.buttonLimpar.TabIndex = 10;
@@ -177,9 +165,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(649, 399);
             this.Controls.Add(this.buttonLimpar);
-            this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonRemover);
-            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.buttonSalvar);
             this.Controls.Add(this.textBoxNomeDaDisciplina);
             this.Controls.Add(this.textBoxIdDisciplina);
             this.Controls.Add(this.label3);
@@ -209,9 +196,8 @@
         private System.Windows.Forms.ToolStripMenuItem encerrarProgramaToolStripMenuItem;
         private System.Windows.Forms.TextBox textBoxIdDisciplina;
         private System.Windows.Forms.TextBox textBoxNomeDaDisciplina;
-        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonSalvar;
         private System.Windows.Forms.Button buttonRemover;
-        private System.Windows.Forms.Button buttonEditar;
         private System.Windows.Forms.Button buttonLimpar;
     }
 }

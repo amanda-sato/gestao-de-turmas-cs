@@ -31,7 +31,18 @@ namespace Gerenciador_de_Turmas
             Application.Exit();
         }
 
-        private void buttonAddDisciplina_Click(object sender, EventArgs e)
+        private void buttonSalvar_Click(object sender, EventArgs e)
+        {
+            if (listBox.SelectedItem == null)
+            {
+                salvar(sender, e);
+                return;
+            }
+
+            editar(sender, e);
+        }
+
+        private void salvar(Object sender, EventArgs e)
         {
             try
             {
@@ -51,10 +62,29 @@ namespace Gerenciador_de_Turmas
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }   
+            }
         }
 
-        private void listAlunos_singleClick(object sender, EventArgs e)
+        private void editar(object sender, EventArgs e)
+        {
+            try
+            {
+                Disciplina selectedDisciplina = listBox.SelectedItem as Disciplina;
+
+                selectedDisciplina.setNomeDisc(textBoxNomeDaDisciplina.Text);
+                MainForm.instance.state.disciplinas.Atualizar(selectedDisciplina);
+
+                listBox.Items[listBox.SelectedIndex] = selectedDisciplina;
+
+                resetaForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void listBox_SingleClick(object sender, EventArgs e)
         {
             if (listBox.SelectedItem == null) return;
 
@@ -66,7 +96,7 @@ namespace Gerenciador_de_Turmas
             textBoxNomeDaDisciplina.Text = selectedDisciplina.getNomeDisc();
         }
 
-        private void buttonRemoverDisciplina_Click(object sender, EventArgs e)
+        private void buttonRemover_Click(object sender, EventArgs e)
         {
             if (listBox.SelectedItem == null)
             {
@@ -82,23 +112,6 @@ namespace Gerenciador_de_Turmas
             resetaForm();
         }
 
-        private void buttonEditarDisciplina_Click(object sender, EventArgs e)
-        {
-            if (listBox.SelectedItem == null)
-            {
-                MessageBox.Show("Selecione uma disciplina!");
-                return;
-            }
-
-            Disciplina selectedDisciplina = listBox.SelectedItem as Disciplina;
-
-            selectedDisciplina.setNomeDisc(textBoxNomeDaDisciplina.Text);
-            MainForm.instance.state.disciplinas.Atualizar(selectedDisciplina);
-
-            listBox.Items[listBox.SelectedIndex] = selectedDisciplina;
-
-            resetaForm();
-        }
         private void buttonLimpar_Click(object sender, EventArgs e)
         {
             resetaForm();
@@ -111,16 +124,14 @@ namespace Gerenciador_de_Turmas
 
             listBox.ClearSelected();
 
-            buttonAdd.Enabled = true;
-            buttonEditar.Enabled = false;
+            buttonSalvar.Text = "Adicionar Disciplina";
             buttonRemover.Enabled = false;
         }
 
         private void modoEdicao()
         {
-            buttonAdd.Enabled = false;
             buttonRemover.Enabled = true;
-            buttonEditar.Enabled = true;
+            buttonSalvar.Text = "Editar Disciplina";
         }
     }
 }
