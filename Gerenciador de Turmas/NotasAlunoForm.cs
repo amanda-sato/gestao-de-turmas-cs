@@ -63,6 +63,8 @@ namespace Gerenciador_de_Turmas
 
         private void listBox_singleClick(object sender, EventArgs e)
         {
+            if (listBox.SelectedItem == null) return;
+
             modoEdicao();
 
             Nota nota = listBox.SelectedItem as Nota;
@@ -151,6 +153,16 @@ namespace Gerenciador_de_Turmas
 
         private void buttonLimpar_Click(object sender, EventArgs e)
         {
+            resetaForm();
+        }
+
+        private void buttonRemover_Click(object sender, EventArgs e)
+        {
+            Nota nota = listBox.SelectedItem as Nota;
+
+            Program.GetState().notas.Remove(nota);
+            listBox.Items.Remove(nota);
+
             resetaForm();
         }
     }

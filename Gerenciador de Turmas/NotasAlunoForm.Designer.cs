@@ -193,8 +193,9 @@
             this.buttonRemover.Name = "buttonRemover";
             this.buttonRemover.Size = new System.Drawing.Size(100, 26);
             this.buttonRemover.TabIndex = 14;
-            this.buttonRemover.Text = "Excluir Nota";
+            this.buttonRemover.Text = "Remover Nota";
             this.buttonRemover.UseVisualStyleBackColor = true;
+            this.buttonRemover.Click += new System.EventHandler(this.buttonRemover_Click);
             // 
             // comboBoxDisciplina
             // 
