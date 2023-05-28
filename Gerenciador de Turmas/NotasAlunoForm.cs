@@ -24,6 +24,14 @@ namespace Gerenciador_de_Turmas
 
             textBoxIdAluno.Text = aluno.getMatricula().ToString();
             textBoxNomeAluno.Text = aluno.getNomeAluno();
+
+            foreach (Nota n in Program.GetState().notas)
+            {
+                if (n.getAlunoId() == this.aluno.getId())
+                {
+                    listBox.Items.Add(n);
+                }
+            }
         }
 
         private string getNomeEntidade()

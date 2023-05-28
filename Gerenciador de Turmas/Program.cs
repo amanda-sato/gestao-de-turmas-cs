@@ -58,6 +58,25 @@ namespace Gerenciador_de_Turmas
             state.alunos.Add(new Aluno("Joaquim Soares", "M", 2));
             state.alunos.Add(new Aluno("Xinforinfula Mercedes", "F", 3));
 
+            // Notas Jose Emanuel
+            state.notas.Add(new Nota(1, 1, 10.50));
+            state.notas.Add(new Nota(1, 2, 15.234));
+            state.notas.Add(new Nota(1, 2, 16.77));
+
+            // Notas Maria Joaquina
+            state.notas.Add(new Nota(2, 1, 12.00));
+            state.notas.Add(new Nota(2, 2, 13.00));
+            state.notas.Add(new Nota(2, 2, 14.645));
+
+            // Notas Emilia Clark
+            state.notas.Add(new Nota(3, 1, 20.00));
+            
+            // Notas Joaquim Soares
+            state.notas.Add(new Nota(4, 1, 12.00));
+            
+            // Notas Xiforinfula Mercedes
+            state.notas.Add(new Nota(5, 1, 14.00));
+
             return state;
         }
     }

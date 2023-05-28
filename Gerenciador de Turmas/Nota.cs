@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Gerenciador_de_Turmas
 {
-    internal class Nota : IRegistro
+    public class Nota : IRegistro
     {
         private static int nextId = 1;
 
