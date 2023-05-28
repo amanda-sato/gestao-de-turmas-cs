@@ -96,6 +96,7 @@ namespace Gerenciador_de_Turmas
                 nota.setDisciplinaId(disciplinaId);
                 nota.setNota(valorNota);
 
+                Program.GetState().notas.Add(nota);
                 listBox.Items.Add(nota);
 
                 resetaForm();
@@ -114,6 +115,7 @@ namespace Gerenciador_de_Turmas
 
                 nota.setNota(double.Parse(textBoxNota.Text));
 
+                Program.GetState().notas.Atualizar(nota);
                 listBox.Items[listBox.SelectedIndex] = nota;
 
                 resetaForm();
@@ -126,9 +128,12 @@ namespace Gerenciador_de_Turmas
 
         private void resetaForm()
         {
+            listBox.ClearSelected();
+
             comboBoxDisciplina.SelectedItem = null;
             comboBoxDisciplina.SelectedText = "--Selecione--";
 
+            buttonSalvar.Text = $"Adicionar {getNomeEntidade()}";
             buttonSalvar.Enabled = false;
             textBoxNota.Clear();
         }
