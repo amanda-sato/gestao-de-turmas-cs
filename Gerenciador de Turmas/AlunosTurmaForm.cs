@@ -99,6 +99,8 @@ namespace Gerenciador_de_Turmas
 
         private void listAlunos_DoubleClick(object sender, EventArgs e)
         {
+            if (listBox.SelectedItem == null) return;
+
             new NotasAlunoForm(listBox.SelectedItem as Aluno).Show();
         }
 

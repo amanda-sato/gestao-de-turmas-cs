@@ -93,6 +93,8 @@ namespace Gerenciador_de_Turmas
 
         protected void listTurmas_DoubleClick(object sender, EventArgs e)
         {
+            if (listBox.SelectedItem == null) return;
+
             new AlunosTurmaForm(listBox.SelectedItem as Turma).Show();
         }
 
