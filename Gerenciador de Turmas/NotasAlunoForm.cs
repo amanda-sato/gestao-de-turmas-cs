@@ -13,10 +13,32 @@ namespace Gerenciador_de_Turmas
     public partial class NotasAlunoForm : Form
     {
         public static NotasAlunoForm instance;
-        public NotasAlunoForm()
+        private Aluno aluno;
+
+
+        public NotasAlunoForm(Aluno aluno)
         {
             InitializeComponent();
             instance = this;
+            this.aluno = aluno;
+
+            textBoxIdAluno.Text = aluno.getMatricula().ToString();
+            textBoxNomeAluno.Text = aluno.getNomeAluno();
+        }
+
+        private string getNomeEntidade()
+        {
+            return "Nota";
+        }
+
+        private void carregaEntidades(object sender, EventArgs e)
+        {
+            foreach (Disciplina d in Program.GetState().disciplinas)
+            {
+                comboBoxDisciplina.Items.Add(d);
+            }
+
+            resetaForm();
         }
 
         private void voltarAoMenuTurmaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -27,27 +49,96 @@ namespace Gerenciador_de_Turmas
 
         private void fecharProgramaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            Application.Exit();
         }
 
 
-        private void listNotas_singleClick(object sender, EventArgs e)
+        private void listBox_singleClick(object sender, EventArgs e)
         {
-            if (listNotas.SelectedItem != null)
-            {
-               // Aluno selectedAluno = listNotas.SelectedItem as Aluno;
+            modoEdicao();
 
-                //textBox5.Text = selectedAluno.get().ToString();
-               // textBox6.Text = selectedAluno.getNomeDisc();
+            Nota nota = listBox.SelectedItem as Nota;
+
+            comboBoxDisciplina.SelectedItem = Program.GetState().disciplinas.GetPorId(nota.getDisciplinaId());
+            textBoxNota.Text = nota.getNota().ToString();
+        }
+
+        private void buttonSalvar_Click(object sender, EventArgs e)
+        {
+            if (listBox.SelectedItem == null)
+            {
+                adicionar(sender, e);
+                return;
+            }
+
+            editar(sender, e);
+        }
+
+        private void adicionar(object sender, EventArgs e)
+        {
+            try
+            {
+                Nota nota = new Nota();
+
+                int alunoId = int.Parse(textBoxIdAluno.Text);
+                int disciplinaId = (comboBoxDisciplina.SelectedItem as Disciplina).getId();
+                double valorNota = double.Parse(textBoxNota.Text);
+
+                nota.setAlunoId(alunoId);
+                nota.setDisciplinaId(disciplinaId);
+                nota.setNota(valorNota);
+
+                listBox.Items.Add(nota);
+
+                resetaForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
-        private void notas_Enter(object sender, EventArgs e)
+        private void editar(object sender, EventArgs e)
         {
-            foreach (Disciplina d in DisciplinasForm.instance.listBox.Items)
+            try
             {
-                MessageBox.Show(d.ToString());
+                Nota nota = listBox.SelectedItem as Nota;
+
+                nota.setNota(double.Parse(textBoxNota.Text));
+
+                listBox.Items[listBox.SelectedIndex] = nota;
+
+                resetaForm();
+            } 
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
+        }
+
+        private void resetaForm()
+        {
+            comboBoxDisciplina.SelectedItem = null;
+            comboBoxDisciplina.SelectedText = "--Selecione--";
+
+            buttonSalvar.Enabled = false;
+            textBoxNota.Clear();
+        }
+
+        protected void modoEdicao()
+        {
+            buttonRemover.Enabled = true;
+            buttonSalvar.Text = $"Editar {getNomeEntidade()}";
+        }
+
+        private void comboBoxDisciplina_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            buttonSalvar.Enabled = comboBoxDisciplina.SelectedItem != null;
+        }
+
+        private void buttonLimpar_Click(object sender, EventArgs e)
+        {
+            resetaForm();
         }
     }
 }

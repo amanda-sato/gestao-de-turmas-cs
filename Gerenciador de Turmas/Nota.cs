@@ -7,33 +7,39 @@ using System.Threading.Tasks;
 
 namespace Gerenciador_de_Turmas
 {
-    internal class Nota
+    internal class Nota : IRegistro
     {
+        private static int nextId = 1;
 
+        private int id;
         private int alunoId;
         private int disciplinaId;
-        private int id;
         private double nota;
 
         public Nota()
         {
+            id = nextId++;
             alunoId = 0;
             disciplinaId = 0;
-            id = 0;
             nota = 0;
 
         }       
 
-        public Nota(int alunoId, int disciplinaId, int id, double nota)
+        public Nota(int alunoId, int disciplinaId, double nota, int id = -1)
         {
+            this.id = id >= 0 ? id : nextId++;
             this.alunoId = alunoId;
             this.disciplinaId = disciplinaId;
-            this.id = id;
             this.nota = nota;
         }
 
+        public static int getNextId()
+        {
+            return nextId;
+        }
+
         public int getAlunoId() {  return alunoId; }
-        public double getDisciplinaId() {  return disciplinaId; }
+        public int getDisciplinaId() {  return disciplinaId; }
         public int getId() { return id; }
         public double getNota() {  return nota; }
 

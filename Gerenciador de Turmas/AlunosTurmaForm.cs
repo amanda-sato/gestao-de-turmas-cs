@@ -99,19 +99,7 @@ namespace Gerenciador_de_Turmas
 
         private void listAlunos_DoubleClick(object sender, EventArgs e)
         {
-            if (listBox.SelectedItems != null)
-            {
-                NotasAlunoForm form = new NotasAlunoForm();
-                form.Show();
-
-                if (listBox.SelectedItem != null)
-                {
-                    Aluno selectedDisciplina = listBox.SelectedItem as Aluno;
-
-                    NotasAlunoForm.instance.textBox3.Text = selectedDisciplina.getMatricula().ToString();
-                    NotasAlunoForm.instance.textBox1.Text = selectedDisciplina.getNomeAluno();
-                }
-            }
+            new NotasAlunoForm(listBox.SelectedItem as Aluno).Show();
         }
 
         private void listAlunos_singleClick(object sender, EventArgs e)

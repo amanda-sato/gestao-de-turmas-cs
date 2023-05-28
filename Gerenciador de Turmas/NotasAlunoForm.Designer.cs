@@ -32,20 +32,21 @@
             this.opçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.voltarAoMenuTurmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fecharProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listNotas = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.listBox = new System.Windows.Forms.ListBox();
+            this.labelNomeAluno = new System.Windows.Forms.Label();
+            this.labelIdAluno = new System.Windows.Forms.Label();
+            this.labelMediaNotas = new System.Windows.Forms.Label();
+            this.textBoxNomeAluno = new System.Windows.Forms.TextBox();
+            this.textBoxMediaNotas = new System.Windows.Forms.TextBox();
+            this.textBoxIdAluno = new System.Windows.Forms.TextBox();
+            this.labelListBox = new System.Windows.Forms.Label();
+            this.textBoxNota = new System.Windows.Forms.TextBox();
+            this.labelDisciplina = new System.Windows.Forms.Label();
+            this.labelNota = new System.Windows.Forms.Label();
+            this.buttonSalvar = new System.Windows.Forms.Button();
+            this.buttonRemover = new System.Windows.Forms.Button();
+            this.comboBoxDisciplina = new System.Windows.Forms.ComboBox();
+            this.buttonLimpar = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,147 +83,164 @@
             this.fecharProgramaToolStripMenuItem.Text = "Fechar Programa";
             this.fecharProgramaToolStripMenuItem.Click += new System.EventHandler(this.fecharProgramaToolStripMenuItem_Click);
             // 
-            // listNotas
+            // listBox
             // 
-            this.listNotas.FormattingEnabled = true;
-            this.listNotas.Location = new System.Drawing.Point(38, 70);
-            this.listNotas.Name = "listNotas";
-            this.listNotas.Size = new System.Drawing.Size(247, 316);
-            this.listNotas.TabIndex = 1;
+            this.listBox.FormattingEnabled = true;
+            this.listBox.Location = new System.Drawing.Point(38, 70);
+            this.listBox.Name = "listBox";
+            this.listBox.Size = new System.Drawing.Size(247, 316);
+            this.listBox.TabIndex = 1;
+            this.listBox.Click += new System.EventHandler(this.listBox_singleClick);
             // 
-            // label1
+            // labelNomeAluno
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(323, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Nome do Aluno:";
+            this.labelNomeAluno.AutoSize = true;
+            this.labelNomeAluno.Location = new System.Drawing.Point(323, 42);
+            this.labelNomeAluno.Name = "labelNomeAluno";
+            this.labelNomeAluno.Size = new System.Drawing.Size(83, 13);
+            this.labelNomeAluno.TabIndex = 2;
+            this.labelNomeAluno.Text = "Nome do Aluno:";
             // 
-            // label2
+            // labelIdAluno
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(323, 70);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Matrícula:";
+            this.labelIdAluno.AutoSize = true;
+            this.labelIdAluno.Location = new System.Drawing.Point(323, 70);
+            this.labelIdAluno.Name = "labelIdAluno";
+            this.labelIdAluno.Size = new System.Drawing.Size(55, 13);
+            this.labelIdAluno.TabIndex = 3;
+            this.labelIdAluno.Text = "Matrícula:";
             // 
-            // label3
+            // labelMediaNotas
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(323, 101);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Média das Notas:";
+            this.labelMediaNotas.AutoSize = true;
+            this.labelMediaNotas.Location = new System.Drawing.Point(323, 101);
+            this.labelMediaNotas.Name = "labelMediaNotas";
+            this.labelMediaNotas.Size = new System.Drawing.Size(90, 13);
+            this.labelMediaNotas.TabIndex = 4;
+            this.labelMediaNotas.Text = "Média das Notas:";
             // 
-            // textBox1
+            // textBoxNomeAluno
             // 
-            this.textBox1.Location = new System.Drawing.Point(437, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(151, 20);
-            this.textBox1.TabIndex = 5;
+            this.textBoxNomeAluno.Enabled = false;
+            this.textBoxNomeAluno.Location = new System.Drawing.Point(437, 42);
+            this.textBoxNomeAluno.Name = "textBoxNomeAluno";
+            this.textBoxNomeAluno.Size = new System.Drawing.Size(167, 20);
+            this.textBoxNomeAluno.TabIndex = 5;
             // 
-            // textBox2
+            // textBoxMediaNotas
             // 
-            this.textBox2.Location = new System.Drawing.Point(437, 101);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(151, 20);
-            this.textBox2.TabIndex = 6;
+            this.textBoxMediaNotas.Enabled = false;
+            this.textBoxMediaNotas.Location = new System.Drawing.Point(437, 101);
+            this.textBoxMediaNotas.Name = "textBoxMediaNotas";
+            this.textBoxMediaNotas.Size = new System.Drawing.Size(167, 20);
+            this.textBoxMediaNotas.TabIndex = 6;
             // 
-            // textBox3
+            // textBoxIdAluno
             // 
-            this.textBox3.Location = new System.Drawing.Point(437, 70);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(151, 20);
-            this.textBox3.TabIndex = 7;
+            this.textBoxIdAluno.Enabled = false;
+            this.textBoxIdAluno.Location = new System.Drawing.Point(437, 70);
+            this.textBoxIdAluno.Name = "textBoxIdAluno";
+            this.textBoxIdAluno.Size = new System.Drawing.Size(167, 20);
+            this.textBoxIdAluno.TabIndex = 7;
             // 
-            // label4
+            // labelListBox
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(54, 42);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(159, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Disciplinas cursadas pelo Aluno:";
+            this.labelListBox.AutoSize = true;
+            this.labelListBox.Location = new System.Drawing.Point(54, 42);
+            this.labelListBox.Name = "labelListBox";
+            this.labelListBox.Size = new System.Drawing.Size(159, 13);
+            this.labelListBox.TabIndex = 8;
+            this.labelListBox.Text = "Disciplinas cursadas pelo Aluno:";
             // 
-            // textBox4
+            // textBoxNota
             // 
-            this.textBox4.Location = new System.Drawing.Point(422, 192);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 9;
+            this.textBoxNota.Location = new System.Drawing.Point(422, 192);
+            this.textBoxNota.Name = "textBoxNota";
+            this.textBoxNota.Size = new System.Drawing.Size(182, 20);
+            this.textBoxNota.TabIndex = 9;
             // 
-            // label5
+            // labelDisciplina
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(332, 175);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Disciplina";
+            this.labelDisciplina.AutoSize = true;
+            this.labelDisciplina.Location = new System.Drawing.Point(332, 175);
+            this.labelDisciplina.Name = "labelDisciplina";
+            this.labelDisciplina.Size = new System.Drawing.Size(52, 13);
+            this.labelDisciplina.TabIndex = 11;
+            this.labelDisciplina.Text = "Disciplina";
             // 
-            // label6
+            // labelNota
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(332, 199);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(30, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Nota";
+            this.labelNota.AutoSize = true;
+            this.labelNota.Location = new System.Drawing.Point(332, 199);
+            this.labelNota.Name = "labelNota";
+            this.labelNota.Size = new System.Drawing.Size(30, 13);
+            this.labelNota.TabIndex = 12;
+            this.labelNota.Text = "Nota";
             // 
-            // button1
+            // buttonSalvar
             // 
-            this.button1.Location = new System.Drawing.Point(422, 238);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 25);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Adicionar Nota";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Location = new System.Drawing.Point(422, 238);
+            this.buttonSalvar.Name = "buttonSalvar";
+            this.buttonSalvar.Size = new System.Drawing.Size(100, 25);
+            this.buttonSalvar.TabIndex = 13;
+            this.buttonSalvar.Text = "Adicionar Nota";
+            this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
-            // button2
+            // buttonRemover
             // 
-            this.button2.Location = new System.Drawing.Point(422, 285);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 26);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Excluir Nota";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonRemover.Location = new System.Drawing.Point(422, 269);
+            this.buttonRemover.Name = "buttonRemover";
+            this.buttonRemover.Size = new System.Drawing.Size(100, 26);
+            this.buttonRemover.TabIndex = 14;
+            this.buttonRemover.Text = "Excluir Nota";
+            this.buttonRemover.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // comboBoxDisciplina
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(422, 165);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 21);
-            this.comboBox1.TabIndex = 15;
+            this.comboBoxDisciplina.FormattingEnabled = true;
+            this.comboBoxDisciplina.Location = new System.Drawing.Point(422, 165);
+            this.comboBoxDisciplina.Name = "comboBoxDisciplina";
+            this.comboBoxDisciplina.Size = new System.Drawing.Size(182, 21);
+            this.comboBoxDisciplina.TabIndex = 15;
+            this.comboBoxDisciplina.SelectedIndexChanged += new System.EventHandler(this.comboBoxDisciplina_SelectedIndexChanged);
+            // 
+            // buttonLimpar
+            // 
+            this.buttonLimpar.Location = new System.Drawing.Point(422, 301);
+            this.buttonLimpar.Name = "buttonLimpar";
+            this.buttonLimpar.Size = new System.Drawing.Size(100, 26);
+            this.buttonLimpar.TabIndex = 14;
+            this.buttonLimpar.Text = "Limpar";
+            this.buttonLimpar.UseVisualStyleBackColor = true;
+            this.buttonLimpar.Click += new System.EventHandler(this.buttonLimpar_Click);
             // 
             // NotasAlunoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(640, 409);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.listNotas);
+            this.Controls.Add(this.comboBoxDisciplina);
+            this.Controls.Add(this.buttonLimpar);
+            this.Controls.Add(this.buttonRemover);
+            this.Controls.Add(this.buttonSalvar);
+            this.Controls.Add(this.labelNota);
+            this.Controls.Add(this.labelDisciplina);
+            this.Controls.Add(this.textBoxNota);
+            this.Controls.Add(this.labelListBox);
+            this.Controls.Add(this.textBoxIdAluno);
+            this.Controls.Add(this.textBoxMediaNotas);
+            this.Controls.Add(this.textBoxNomeAluno);
+            this.Controls.Add(this.labelMediaNotas);
+            this.Controls.Add(this.labelIdAluno);
+            this.Controls.Add(this.labelNomeAluno);
+            this.Controls.Add(this.listBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "NotasAlunoForm";
             this.Text = "Menu Notas";
-            this.Click += new System.EventHandler(this.listNotas_singleClick);
-            this.Enter += new System.EventHandler(this.notas_Enter);
+            this.Load += new System.EventHandler(this.carregaEntidades);
+            this.Click += new System.EventHandler(this.listBox_singleClick);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -236,19 +254,20 @@
         private System.Windows.Forms.ToolStripMenuItem opçõesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem voltarAoMenuTurmaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fecharProgramaToolStripMenuItem;
-        private System.Windows.Forms.ListBox listNotas;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox textBox1;
-        public System.Windows.Forms.TextBox textBox2;
-        public System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ListBox listBox;
+        private System.Windows.Forms.Label labelNomeAluno;
+        private System.Windows.Forms.Label labelIdAluno;
+        private System.Windows.Forms.Label labelMediaNotas;
+        public System.Windows.Forms.TextBox textBoxNomeAluno;
+        public System.Windows.Forms.TextBox textBoxMediaNotas;
+        public System.Windows.Forms.TextBox textBoxIdAluno;
+        private System.Windows.Forms.Label labelListBox;
+        private System.Windows.Forms.TextBox textBoxNota;
+        private System.Windows.Forms.Label labelDisciplina;
+        private System.Windows.Forms.Label labelNota;
+        private System.Windows.Forms.Button buttonSalvar;
+        private System.Windows.Forms.Button buttonRemover;
+        private System.Windows.Forms.ComboBox comboBoxDisciplina;
+        private System.Windows.Forms.Button buttonLimpar;
     }
 }
