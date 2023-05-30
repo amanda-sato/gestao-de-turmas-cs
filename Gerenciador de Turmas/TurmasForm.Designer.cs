@@ -41,6 +41,9 @@
             this.buttonSalvar = new System.Windows.Forms.Button();
             this.buttonRemover = new System.Windows.Forms.Button();
             this.buttonLimpar = new System.Windows.Forms.Button();
+            this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.médiaGeralPorAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,6 +98,9 @@
             // 
             this.opçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.voltarAoMenuPrincipalToolStripMenuItem,
+            this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem,
+            this.médiaGeralPorAlunoToolStripMenuItem,
+            this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem,
             this.encerrarProgramaToolStripMenuItem});
             this.opçõesToolStripMenuItem.Name = "opçõesToolStripMenuItem";
             this.opçõesToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
@@ -103,14 +109,14 @@
             // voltarAoMenuPrincipalToolStripMenuItem
             // 
             this.voltarAoMenuPrincipalToolStripMenuItem.Name = "voltarAoMenuPrincipalToolStripMenuItem";
-            this.voltarAoMenuPrincipalToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.voltarAoMenuPrincipalToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
             this.voltarAoMenuPrincipalToolStripMenuItem.Text = "Voltar ao Menu Principal";
             this.voltarAoMenuPrincipalToolStripMenuItem.Click += new System.EventHandler(this.voltarAoMenuPrincipalToolStripMenuItem_Click);
             // 
             // encerrarProgramaToolStripMenuItem
             // 
             this.encerrarProgramaToolStripMenuItem.Name = "encerrarProgramaToolStripMenuItem";
-            this.encerrarProgramaToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.encerrarProgramaToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
             this.encerrarProgramaToolStripMenuItem.Text = "Encerrar Programa";
             this.encerrarProgramaToolStripMenuItem.Click += new System.EventHandler(this.encerrarProgramaToolStripMenuItem_Click);
             // 
@@ -162,6 +168,24 @@
             this.buttonLimpar.UseVisualStyleBackColor = true;
             this.buttonLimpar.Click += new System.EventHandler(this.buttonLimpar_Click);
             // 
+            // relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem
+            // 
+            this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem.Name = "relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem";
+            this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
+            this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem.Text = "Relação de AlunosAprovados e Reprovados";
+            // 
+            // médiaGeralPorAlunoToolStripMenuItem
+            // 
+            this.médiaGeralPorAlunoToolStripMenuItem.Name = "médiaGeralPorAlunoToolStripMenuItem";
+            this.médiaGeralPorAlunoToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
+            this.médiaGeralPorAlunoToolStripMenuItem.Text = "Média Geral Por Aluno";
+            // 
+            // taxaDeAprovaçãoPorDisciplinaToolStripMenuItem
+            // 
+            this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem.Name = "taxaDeAprovaçãoPorDisciplinaToolStripMenuItem";
+            this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
+            this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem.Text = "Taxa de Aprovação Por Disciplina";
+            // 
             // TurmasForm
             // 
             this.AcceptButton = this.buttonSalvar;
@@ -205,5 +229,8 @@
         protected System.Windows.Forms.Button buttonSalvar;
         protected System.Windows.Forms.Button buttonRemover;
         protected System.Windows.Forms.Button buttonLimpar;
+        private System.Windows.Forms.ToolStripMenuItem relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem médiaGeralPorAlunoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem taxaDeAprovaçãoPorDisciplinaToolStripMenuItem;
     }
 }
