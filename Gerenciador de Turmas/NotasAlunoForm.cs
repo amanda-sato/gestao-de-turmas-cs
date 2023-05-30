@@ -12,14 +12,11 @@ namespace Gerenciador_de_Turmas
 {
     public partial class NotasAlunoForm : Form
     {
-        public static NotasAlunoForm instance;
         private Aluno aluno;
-
 
         public NotasAlunoForm(Aluno aluno)
         {
             InitializeComponent();
-            instance = this;
             this.aluno = aluno;
 
             textBoxIdAluno.Text = aluno.getMatricula().ToString();
