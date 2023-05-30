@@ -26,7 +26,9 @@ namespace Gerenciador_de_Turmas
             {
                 if (n.getAlunoId() == this.aluno.getId())
                 {
-                    listBox.Items.Add(n);
+                    string[] row = { n.getDisciplinaId().ToString(), n.getNota().ToString() };
+                    dataGridView.Rows.Add(row);
+                    //listBox.Items.Add(n);
                 }
             }
         }
@@ -49,28 +51,28 @@ namespace Gerenciador_de_Turmas
 
         private void buttonLimpar_Click(object sender, EventArgs e) => resetaForm();
 
-        private void listBox_singleClick(object sender, EventArgs e)
-        {
-            if (listBox.SelectedItem == null) return;
+        //private void listBox_singleClick(object sender, EventArgs e)
+        //{
+        //    if (listBox.SelectedItem == null) return;
 
-            modoEdicao();
+        //    modoEdicao();
 
-            Nota nota = listBox.SelectedItem as Nota;
+        //    Nota nota = listBox.SelectedItem as Nota;
 
-            comboBoxDisciplina.SelectedItem = Program.GetState().disciplinas.GetPorId(nota.getDisciplinaId());
-            textBoxNota.Text = nota.getNota().ToString();
-        }
+        //    comboBoxDisciplina.SelectedItem = Program.GetState().disciplinas.GetPorId(nota.getDisciplinaId());
+        //    textBoxNota.Text = nota.getNota().ToString();
+        //}
 
-        private void buttonSalvar_Click(object sender, EventArgs e)
-        {
-            if (listBox.SelectedItem == null)
-            {
-                adicionar(sender, e);
-                return;
-            }
+        //private void buttonSalvar_Click(object sender, EventArgs e)
+        //{
+        //    if (listBox.SelectedItem == null)
+        //    {
+        //        adicionar(sender, e);
+        //        return;
+        //    }
 
-            editar(sender, e);
-        }
+        //    editar(sender, e);
+        //}
 
         private void adicionar(object sender, EventArgs e)
         {
@@ -87,7 +89,7 @@ namespace Gerenciador_de_Turmas
                 nota.setNota(valorNota);
 
                 Program.GetState().notas.Add(nota);
-                listBox.Items.Add(nota);
+                dataGridView.Rows.Add(nota);
 
                 resetaForm();
             }
@@ -97,28 +99,28 @@ namespace Gerenciador_de_Turmas
             }
         }
 
-        private void editar(object sender, EventArgs e)
-        {
-            try
-            {
-                Nota nota = listBox.SelectedItem as Nota;
+        //private void editar(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        Nota nota = listBox.SelectedItem as Nota;
 
-                nota.setNota(double.Parse(textBoxNota.Text));
+        //        nota.setNota(double.Parse(textBoxNota.Text));
 
-                Program.GetState().notas.Atualizar(nota);
-                listBox.Items[listBox.SelectedIndex] = nota;
+        //        Program.GetState().notas.Atualizar(nota);
+        //        listBox.Items[listBox.SelectedIndex] = nota;
 
-                resetaForm();
-            } 
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        //        resetaForm();
+        //    } 
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
         private void resetaForm()
         {
-            listBox.ClearSelected();
+            //listBox.ClearSelected();
 
             comboBoxDisciplina.SelectedItem = null;
             comboBoxDisciplina.SelectedText = "--Selecione--";
@@ -141,10 +143,10 @@ namespace Gerenciador_de_Turmas
 
         private void buttonRemover_Click(object sender, EventArgs e)
         {
-            Nota nota = listBox.SelectedItem as Nota;
+            //Nota nota = listBox.SelectedItem as Nota;
 
-            Program.GetState().notas.Remove(nota);
-            listBox.Items.Remove(nota);
+            //Program.GetState().notas.Remove(nota);
+            //listBox.Items.Remove(nota);
 
             resetaForm();
         }

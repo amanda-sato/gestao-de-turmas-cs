@@ -32,7 +32,6 @@
             this.opçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.voltarAoMenuTurmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fecharProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listBox = new System.Windows.Forms.ListBox();
             this.labelNomeAluno = new System.Windows.Forms.Label();
             this.labelIdAluno = new System.Windows.Forms.Label();
             this.labelMediaNotas = new System.Windows.Forms.Label();
@@ -47,7 +46,11 @@
             this.buttonRemover = new System.Windows.Forms.Button();
             this.comboBoxDisciplina = new System.Windows.Forms.ComboBox();
             this.buttonLimpar = new System.Windows.Forms.Button();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.disciplina = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nota1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -56,7 +59,7 @@
             this.opçõesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(640, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(950, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -83,19 +86,10 @@
             this.fecharProgramaToolStripMenuItem.Text = "Fechar Programa";
             this.fecharProgramaToolStripMenuItem.Click += new System.EventHandler(this.fecharProgramaToolStripMenuItem_Click);
             // 
-            // listBox
-            // 
-            this.listBox.FormattingEnabled = true;
-            this.listBox.Location = new System.Drawing.Point(38, 70);
-            this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(247, 316);
-            this.listBox.TabIndex = 1;
-            this.listBox.Click += new System.EventHandler(this.listBox_singleClick);
-            // 
             // labelNomeAluno
             // 
             this.labelNomeAluno.AutoSize = true;
-            this.labelNomeAluno.Location = new System.Drawing.Point(323, 42);
+            this.labelNomeAluno.Location = new System.Drawing.Point(624, 70);
             this.labelNomeAluno.Name = "labelNomeAluno";
             this.labelNomeAluno.Size = new System.Drawing.Size(83, 13);
             this.labelNomeAluno.TabIndex = 2;
@@ -104,7 +98,7 @@
             // labelIdAluno
             // 
             this.labelIdAluno.AutoSize = true;
-            this.labelIdAluno.Location = new System.Drawing.Point(323, 70);
+            this.labelIdAluno.Location = new System.Drawing.Point(624, 98);
             this.labelIdAluno.Name = "labelIdAluno";
             this.labelIdAluno.Size = new System.Drawing.Size(55, 13);
             this.labelIdAluno.TabIndex = 3;
@@ -113,7 +107,7 @@
             // labelMediaNotas
             // 
             this.labelMediaNotas.AutoSize = true;
-            this.labelMediaNotas.Location = new System.Drawing.Point(323, 101);
+            this.labelMediaNotas.Location = new System.Drawing.Point(624, 129);
             this.labelMediaNotas.Name = "labelMediaNotas";
             this.labelMediaNotas.Size = new System.Drawing.Size(90, 13);
             this.labelMediaNotas.TabIndex = 4;
@@ -122,7 +116,7 @@
             // textBoxNomeAluno
             // 
             this.textBoxNomeAluno.Enabled = false;
-            this.textBoxNomeAluno.Location = new System.Drawing.Point(437, 42);
+            this.textBoxNomeAluno.Location = new System.Drawing.Point(738, 70);
             this.textBoxNomeAluno.Name = "textBoxNomeAluno";
             this.textBoxNomeAluno.Size = new System.Drawing.Size(167, 20);
             this.textBoxNomeAluno.TabIndex = 5;
@@ -130,7 +124,7 @@
             // textBoxMediaNotas
             // 
             this.textBoxMediaNotas.Enabled = false;
-            this.textBoxMediaNotas.Location = new System.Drawing.Point(437, 101);
+            this.textBoxMediaNotas.Location = new System.Drawing.Point(738, 129);
             this.textBoxMediaNotas.Name = "textBoxMediaNotas";
             this.textBoxMediaNotas.Size = new System.Drawing.Size(167, 20);
             this.textBoxMediaNotas.TabIndex = 6;
@@ -138,7 +132,7 @@
             // textBoxIdAluno
             // 
             this.textBoxIdAluno.Enabled = false;
-            this.textBoxIdAluno.Location = new System.Drawing.Point(437, 70);
+            this.textBoxIdAluno.Location = new System.Drawing.Point(738, 98);
             this.textBoxIdAluno.Name = "textBoxIdAluno";
             this.textBoxIdAluno.Size = new System.Drawing.Size(167, 20);
             this.textBoxIdAluno.TabIndex = 7;
@@ -154,7 +148,7 @@
             // 
             // textBoxNota
             // 
-            this.textBoxNota.Location = new System.Drawing.Point(422, 192);
+            this.textBoxNota.Location = new System.Drawing.Point(723, 220);
             this.textBoxNota.Name = "textBoxNota";
             this.textBoxNota.Size = new System.Drawing.Size(182, 20);
             this.textBoxNota.TabIndex = 9;
@@ -162,7 +156,7 @@
             // labelDisciplina
             // 
             this.labelDisciplina.AutoSize = true;
-            this.labelDisciplina.Location = new System.Drawing.Point(332, 175);
+            this.labelDisciplina.Location = new System.Drawing.Point(633, 203);
             this.labelDisciplina.Name = "labelDisciplina";
             this.labelDisciplina.Size = new System.Drawing.Size(52, 13);
             this.labelDisciplina.TabIndex = 11;
@@ -171,7 +165,7 @@
             // labelNota
             // 
             this.labelNota.AutoSize = true;
-            this.labelNota.Location = new System.Drawing.Point(332, 199);
+            this.labelNota.Location = new System.Drawing.Point(633, 227);
             this.labelNota.Name = "labelNota";
             this.labelNota.Size = new System.Drawing.Size(30, 13);
             this.labelNota.TabIndex = 12;
@@ -179,17 +173,16 @@
             // 
             // buttonSalvar
             // 
-            this.buttonSalvar.Location = new System.Drawing.Point(422, 238);
+            this.buttonSalvar.Location = new System.Drawing.Point(723, 266);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(100, 25);
             this.buttonSalvar.TabIndex = 13;
             this.buttonSalvar.Text = "Adicionar Nota";
             this.buttonSalvar.UseVisualStyleBackColor = true;
-            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
             // buttonRemover
             // 
-            this.buttonRemover.Location = new System.Drawing.Point(422, 269);
+            this.buttonRemover.Location = new System.Drawing.Point(723, 297);
             this.buttonRemover.Name = "buttonRemover";
             this.buttonRemover.Size = new System.Drawing.Size(100, 26);
             this.buttonRemover.TabIndex = 14;
@@ -200,7 +193,7 @@
             // comboBoxDisciplina
             // 
             this.comboBoxDisciplina.FormattingEnabled = true;
-            this.comboBoxDisciplina.Location = new System.Drawing.Point(422, 165);
+            this.comboBoxDisciplina.Location = new System.Drawing.Point(723, 193);
             this.comboBoxDisciplina.Name = "comboBoxDisciplina";
             this.comboBoxDisciplina.Size = new System.Drawing.Size(182, 21);
             this.comboBoxDisciplina.TabIndex = 15;
@@ -208,7 +201,7 @@
             // 
             // buttonLimpar
             // 
-            this.buttonLimpar.Location = new System.Drawing.Point(422, 301);
+            this.buttonLimpar.Location = new System.Drawing.Point(723, 329);
             this.buttonLimpar.Name = "buttonLimpar";
             this.buttonLimpar.Size = new System.Drawing.Size(100, 26);
             this.buttonLimpar.TabIndex = 14;
@@ -216,11 +209,33 @@
             this.buttonLimpar.UseVisualStyleBackColor = true;
             this.buttonLimpar.Click += new System.EventHandler(this.buttonLimpar_Click);
             // 
+            // dataGridView
+            // 
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.disciplina,
+            this.Nota1});
+            this.dataGridView.Location = new System.Drawing.Point(12, 70);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.Size = new System.Drawing.Size(606, 327);
+            this.dataGridView.TabIndex = 16;
+            // 
+            // disciplina
+            // 
+            this.disciplina.HeaderText = "Disciplina";
+            this.disciplina.Name = "disciplina";
+            // 
+            // Nota1
+            // 
+            this.Nota1.HeaderText = "nota1";
+            this.Nota1.Name = "Nota1";
+            // 
             // NotasAlunoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 409);
+            this.ClientSize = new System.Drawing.Size(950, 409);
+            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.comboBoxDisciplina);
             this.Controls.Add(this.buttonLimpar);
             this.Controls.Add(this.buttonRemover);
@@ -235,15 +250,14 @@
             this.Controls.Add(this.labelMediaNotas);
             this.Controls.Add(this.labelIdAluno);
             this.Controls.Add(this.labelNomeAluno);
-            this.Controls.Add(this.listBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "NotasAlunoForm";
             this.Text = "Menu Notas";
             this.Load += new System.EventHandler(this.carregaEntidades);
-            this.Click += new System.EventHandler(this.listBox_singleClick);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,7 +269,6 @@
         private System.Windows.Forms.ToolStripMenuItem opçõesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem voltarAoMenuTurmaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fecharProgramaToolStripMenuItem;
-        private System.Windows.Forms.ListBox listBox;
         private System.Windows.Forms.Label labelNomeAluno;
         private System.Windows.Forms.Label labelIdAluno;
         private System.Windows.Forms.Label labelMediaNotas;
@@ -270,5 +283,8 @@
         private System.Windows.Forms.Button buttonRemover;
         private System.Windows.Forms.ComboBox comboBoxDisciplina;
         private System.Windows.Forms.Button buttonLimpar;
+        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn disciplina;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nota1;
     }
 }
