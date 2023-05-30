@@ -83,7 +83,7 @@ namespace Gerenciador_de_Turmas
                 novaDisciplina.setId(id);
                 novaDisciplina.setNomeDisc(nomeDisc);
 
-                MainForm.instance.state.disciplinas.Add(novaDisciplina);
+                Program.GetState().disciplinas.Add(novaDisciplina);
                 listBox.Items.Add(novaDisciplina);
 
                 resetaForm();
@@ -101,7 +101,7 @@ namespace Gerenciador_de_Turmas
                 Disciplina selectedDisciplina = listBox.SelectedItem as Disciplina;
 
                 selectedDisciplina.setNomeDisc(textBoxNome.Text);
-                MainForm.instance.state.disciplinas.Atualizar(selectedDisciplina);
+                Program.GetState().disciplinas.Atualizar(selectedDisciplina);
 
                 listBox.Items[listBox.SelectedIndex] = selectedDisciplina;
 
@@ -135,7 +135,7 @@ namespace Gerenciador_de_Turmas
             
             Disciplina selectedDisciplina = listBox.SelectedItem as Disciplina;
 
-            MainForm.instance.state.disciplinas.Remove(selectedDisciplina);
+            Program.GetState().disciplinas.Remove(selectedDisciplina);
             listBox.Items.Remove(selectedDisciplina);
 
             resetaForm();

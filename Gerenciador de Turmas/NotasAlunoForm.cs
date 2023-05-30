@@ -34,10 +34,7 @@ namespace Gerenciador_de_Turmas
             }
         }
 
-        private string getNomeEntidade()
-        {
-            return "Nota";
-        }
+        private string getNomeEntidade() => "Nota";
 
         private void carregaEntidades(object sender, EventArgs e)
         {
@@ -49,17 +46,11 @@ namespace Gerenciador_de_Turmas
             resetaForm();
         }
 
-        private void voltarAoMenuTurmaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AlunosTurmaForm.instance.Focus();
-            this.Close();
-        }
+        private void voltarAoMenuTurmaToolStripMenuItem_Click(object sender, EventArgs e) => Close();
+        
+        private void fecharProgramaToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
 
-        private void fecharProgramaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
+        private void buttonLimpar_Click(object sender, EventArgs e) => resetaForm();
 
         private void listBox_singleClick(object sender, EventArgs e)
         {
@@ -149,11 +140,6 @@ namespace Gerenciador_de_Turmas
         private void comboBoxDisciplina_SelectedIndexChanged(object sender, EventArgs e)
         {
             buttonSalvar.Enabled = comboBoxDisciplina.SelectedItem != null;
-        }
-
-        private void buttonLimpar_Click(object sender, EventArgs e)
-        {
-            resetaForm();
         }
 
         private void buttonRemover_Click(object sender, EventArgs e)

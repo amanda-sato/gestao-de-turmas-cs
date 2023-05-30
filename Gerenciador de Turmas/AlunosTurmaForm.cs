@@ -5,13 +5,11 @@ namespace Gerenciador_de_Turmas
 {
     public partial class AlunosTurmaForm : Form
     {
-        public static AlunosTurmaForm instance;
         private Turma turma;
 
         public AlunosTurmaForm(Turma turma)
         {
             InitializeComponent();
-            instance = this;
 
             this.turma = turma;
 
@@ -29,27 +27,15 @@ namespace Gerenciador_de_Turmas
             resetaForm();
         }
 
-        public string getNomeEntidade()
-        {
-            return "Aluno";
-        }
+        public string getNomeEntidade() => "Aluno";
 
-        public string getNomeEntidadePlural()
-        {
-            return "Alunos";
-        }
+        public string getNomeEntidadePlural() => "Alunos";
 
+        private void voltarAoMenuTurmasToolStripMenuItem_Click(object sender, EventArgs e) => Close();
 
-        private void voltarAoMenuTurmasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TurmasForm.instance.Focus();
-            this.Close();
-        }
+        private void fecharProgramaToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
 
-        private void fecharProgramaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        protected void buttonLimpar_Click(object sender, EventArgs e) => resetaForm();
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
@@ -101,7 +87,7 @@ namespace Gerenciador_de_Turmas
         {
             if (listBox.SelectedItem == null) return;
 
-            new NotasAlunoForm(listBox.SelectedItem as Aluno).Show();
+            new NotasAlunoForm(listBox.SelectedItem as Aluno).ShowDialog();
         }
 
         private void listAlunos_singleClick(object sender, EventArgs e)
@@ -130,11 +116,6 @@ namespace Gerenciador_de_Turmas
             Program.GetState().alunos.Remove(aluno);
             listBox.Items.Remove(aluno);
 
-            resetaForm();
-        }
-
-        protected void buttonLimpar_Click(object sender, EventArgs e)
-        {
             resetaForm();
         }
 
