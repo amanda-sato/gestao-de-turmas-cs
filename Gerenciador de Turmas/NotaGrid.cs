@@ -48,9 +48,6 @@ namespace Gerenciador_de_Turmas
         {
             if (other == null) return 1;
 
-            if (id < 0) return -1;
-            if (other.id < 0) return 1;
-
             return disciplinaId != other.disciplinaId
                 ? disciplinaId.CompareTo(other.disciplinaId)
                 : id.CompareTo(other.id);

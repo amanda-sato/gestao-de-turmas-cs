@@ -32,21 +32,6 @@ namespace Gerenciador_de_Turmas
                 }
             }
 
-            foreach (Disciplina d in disciplinas)
-            {
-                if (! disciplinasComNotaDoAluno.Contains(d.getId()))
-                {
-                    notas.Add(new NotaGrid(
-                        id: -1,
-                        alunoId: alunoId,
-                        nomeAluno: nomeAluno,
-                        disciplinaId: d.getId(),
-                        nomesDisc: disciplinas.GetPorId(d.getId()).getNomeDisc(),
-                        nota: -1
-                    ));
-                }
-            }
-
             notas.Sort();
 
             return notas;

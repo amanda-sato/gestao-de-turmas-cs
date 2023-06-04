@@ -47,6 +47,8 @@
             this.comboBoxDisciplina = new System.Windows.Forms.ComboBox();
             this.buttonLimpar = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.listBoxDisc = new System.Windows.Forms.ListBox();
+            this.labelDisciplinas = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -138,7 +140,7 @@
             // labelListBox
             // 
             this.labelListBox.AutoSize = true;
-            this.labelListBox.Location = new System.Drawing.Point(54, 42);
+            this.labelListBox.Location = new System.Drawing.Point(264, 54);
             this.labelListBox.Name = "labelListBox";
             this.labelListBox.Size = new System.Drawing.Size(159, 13);
             this.labelListBox.TabIndex = 8;
@@ -218,22 +220,42 @@
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(12, 70);
+            this.dataGridView.Location = new System.Drawing.Point(267, 70);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(512, 317);
+            this.dataGridView.Size = new System.Drawing.Size(257, 317);
             this.dataGridView.TabIndex = 16;
             this.dataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView_CellFormatting);
             this.dataGridView.Click += new System.EventHandler(this.dataGridView_Click);
+            // 
+            // listBoxDisc
+            // 
+            this.listBoxDisc.FormattingEnabled = true;
+            this.listBoxDisc.Location = new System.Drawing.Point(34, 70);
+            this.listBoxDisc.Name = "listBoxDisc";
+            this.listBoxDisc.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.listBoxDisc.Size = new System.Drawing.Size(209, 316);
+            this.listBoxDisc.TabIndex = 17;
+            // 
+            // labelDisciplinas
+            // 
+            this.labelDisciplinas.AutoSize = true;
+            this.labelDisciplinas.Location = new System.Drawing.Point(34, 53);
+            this.labelDisciplinas.Name = "labelDisciplinas";
+            this.labelDisciplinas.Size = new System.Drawing.Size(57, 13);
+            this.labelDisciplinas.TabIndex = 18;
+            this.labelDisciplinas.Text = "Disciplinas";
             // 
             // NotasAlunoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 409);
+            this.Controls.Add(this.labelDisciplinas);
+            this.Controls.Add(this.listBoxDisc);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.comboBoxDisciplina);
             this.Controls.Add(this.buttonLimpar);
@@ -283,5 +305,7 @@
         private System.Windows.Forms.ComboBox comboBoxDisciplina;
         private System.Windows.Forms.Button buttonLimpar;
         private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.ListBox listBoxDisc;
+        private System.Windows.Forms.Label labelDisciplinas;
     }
 }

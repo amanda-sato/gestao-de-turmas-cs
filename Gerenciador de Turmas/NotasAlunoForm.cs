@@ -24,6 +24,7 @@ namespace Gerenciador_de_Turmas
             foreach (Disciplina d in Program.GetState().disciplinas)
             {
                 comboBoxDisciplina.Items.Add(d);
+                listBoxDisc.Items.Add(d);
             }
 
             textBoxIdAluno.Text = aluno.getMatricula().ToString();
