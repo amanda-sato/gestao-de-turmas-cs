@@ -57,7 +57,7 @@
             this.opçõesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(950, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(861, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -87,7 +87,7 @@
             // labelNomeAluno
             // 
             this.labelNomeAluno.AutoSize = true;
-            this.labelNomeAluno.Location = new System.Drawing.Point(624, 70);
+            this.labelNomeAluno.Location = new System.Drawing.Point(540, 70);
             this.labelNomeAluno.Name = "labelNomeAluno";
             this.labelNomeAluno.Size = new System.Drawing.Size(83, 13);
             this.labelNomeAluno.TabIndex = 2;
@@ -96,7 +96,7 @@
             // labelIdAluno
             // 
             this.labelIdAluno.AutoSize = true;
-            this.labelIdAluno.Location = new System.Drawing.Point(624, 98);
+            this.labelIdAluno.Location = new System.Drawing.Point(540, 98);
             this.labelIdAluno.Name = "labelIdAluno";
             this.labelIdAluno.Size = new System.Drawing.Size(55, 13);
             this.labelIdAluno.TabIndex = 3;
@@ -105,7 +105,7 @@
             // labelMediaNotas
             // 
             this.labelMediaNotas.AutoSize = true;
-            this.labelMediaNotas.Location = new System.Drawing.Point(624, 129);
+            this.labelMediaNotas.Location = new System.Drawing.Point(540, 129);
             this.labelMediaNotas.Name = "labelMediaNotas";
             this.labelMediaNotas.Size = new System.Drawing.Size(90, 13);
             this.labelMediaNotas.TabIndex = 4;
@@ -114,7 +114,7 @@
             // textBoxNomeAluno
             // 
             this.textBoxNomeAluno.Enabled = false;
-            this.textBoxNomeAluno.Location = new System.Drawing.Point(738, 70);
+            this.textBoxNomeAluno.Location = new System.Drawing.Point(654, 70);
             this.textBoxNomeAluno.Name = "textBoxNomeAluno";
             this.textBoxNomeAluno.Size = new System.Drawing.Size(167, 20);
             this.textBoxNomeAluno.TabIndex = 5;
@@ -122,7 +122,7 @@
             // textBoxMediaNotas
             // 
             this.textBoxMediaNotas.Enabled = false;
-            this.textBoxMediaNotas.Location = new System.Drawing.Point(738, 129);
+            this.textBoxMediaNotas.Location = new System.Drawing.Point(654, 129);
             this.textBoxMediaNotas.Name = "textBoxMediaNotas";
             this.textBoxMediaNotas.Size = new System.Drawing.Size(167, 20);
             this.textBoxMediaNotas.TabIndex = 6;
@@ -130,7 +130,7 @@
             // textBoxIdAluno
             // 
             this.textBoxIdAluno.Enabled = false;
-            this.textBoxIdAluno.Location = new System.Drawing.Point(738, 98);
+            this.textBoxIdAluno.Location = new System.Drawing.Point(654, 98);
             this.textBoxIdAluno.Name = "textBoxIdAluno";
             this.textBoxIdAluno.Size = new System.Drawing.Size(167, 20);
             this.textBoxIdAluno.TabIndex = 7;
@@ -146,7 +146,7 @@
             // 
             // textBoxNota
             // 
-            this.textBoxNota.Location = new System.Drawing.Point(723, 220);
+            this.textBoxNota.Location = new System.Drawing.Point(639, 220);
             this.textBoxNota.Name = "textBoxNota";
             this.textBoxNota.Size = new System.Drawing.Size(182, 20);
             this.textBoxNota.TabIndex = 9;
@@ -154,7 +154,7 @@
             // labelDisciplina
             // 
             this.labelDisciplina.AutoSize = true;
-            this.labelDisciplina.Location = new System.Drawing.Point(633, 203);
+            this.labelDisciplina.Location = new System.Drawing.Point(549, 203);
             this.labelDisciplina.Name = "labelDisciplina";
             this.labelDisciplina.Size = new System.Drawing.Size(52, 13);
             this.labelDisciplina.TabIndex = 11;
@@ -163,7 +163,7 @@
             // labelNota
             // 
             this.labelNota.AutoSize = true;
-            this.labelNota.Location = new System.Drawing.Point(633, 227);
+            this.labelNota.Location = new System.Drawing.Point(549, 227);
             this.labelNota.Name = "labelNota";
             this.labelNota.Size = new System.Drawing.Size(30, 13);
             this.labelNota.TabIndex = 12;
@@ -171,7 +171,7 @@
             // 
             // buttonSalvar
             // 
-            this.buttonSalvar.Location = new System.Drawing.Point(723, 266);
+            this.buttonSalvar.Location = new System.Drawing.Point(639, 266);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(100, 25);
             this.buttonSalvar.TabIndex = 13;
@@ -180,7 +180,7 @@
             // 
             // buttonRemover
             // 
-            this.buttonRemover.Location = new System.Drawing.Point(723, 297);
+            this.buttonRemover.Location = new System.Drawing.Point(639, 297);
             this.buttonRemover.Name = "buttonRemover";
             this.buttonRemover.Size = new System.Drawing.Size(100, 26);
             this.buttonRemover.TabIndex = 14;
@@ -191,7 +191,7 @@
             // comboBoxDisciplina
             // 
             this.comboBoxDisciplina.FormattingEnabled = true;
-            this.comboBoxDisciplina.Location = new System.Drawing.Point(723, 193);
+            this.comboBoxDisciplina.Location = new System.Drawing.Point(639, 193);
             this.comboBoxDisciplina.Name = "comboBoxDisciplina";
             this.comboBoxDisciplina.Size = new System.Drawing.Size(182, 21);
             this.comboBoxDisciplina.TabIndex = 15;
@@ -199,7 +199,7 @@
             // 
             // buttonLimpar
             // 
-            this.buttonLimpar.Location = new System.Drawing.Point(723, 329);
+            this.buttonLimpar.Location = new System.Drawing.Point(639, 329);
             this.buttonLimpar.Name = "buttonLimpar";
             this.buttonLimpar.Size = new System.Drawing.Size(100, 26);
             this.buttonLimpar.TabIndex = 14;
@@ -213,14 +213,15 @@
             this.dataGridView.Location = new System.Drawing.Point(12, 70);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(595, 317);
+            this.dataGridView.Size = new System.Drawing.Size(512, 317);
             this.dataGridView.TabIndex = 16;
+            this.dataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView_CellFormatting);
             // 
             // NotasAlunoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 409);
+            this.ClientSize = new System.Drawing.Size(861, 409);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.comboBoxDisciplina);
             this.Controls.Add(this.buttonLimpar);

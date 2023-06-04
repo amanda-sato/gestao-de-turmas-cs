@@ -145,5 +145,13 @@ namespace Gerenciador_de_Turmas
 
             resetaForm();
         }
+
+        private void dataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.Value != null && e.Value.ToString() != "-1") return;
+
+            e.Value = "--";
+            e.FormattingApplied = true;
+        }
     }
 }
