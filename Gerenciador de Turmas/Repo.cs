@@ -6,7 +6,7 @@ namespace Gerenciador_de_Turmas
 {
     public class Repo<T> : IEnumerable<T> where T : IRegistro
     {
-        private readonly List<T> _list = new List<T>();
+        protected readonly List<T> _list = new List<T>();
 
         public IEnumerator<T> GetEnumerator()
         {

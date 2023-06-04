@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Aluno.cs" />
     <Compile Include="AlunoRepo.cs" />
+    <Compile Include="NotaGrid.cs" />
     <Compile Include="NotaRepo.cs" />
     <Compile Include="IRegistro.cs" />
     <Compile Include="State.cs" />

@@ -47,8 +47,6 @@
             this.comboBoxDisciplina = new System.Windows.Forms.ComboBox();
             this.buttonLimpar = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.disciplina = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nota1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -212,23 +210,11 @@
             // dataGridView
             // 
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.disciplina,
-            this.Nota1});
             this.dataGridView.Location = new System.Drawing.Point(12, 70);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(606, 327);
+            this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView.Size = new System.Drawing.Size(595, 317);
             this.dataGridView.TabIndex = 16;
-            // 
-            // disciplina
-            // 
-            this.disciplina.HeaderText = "Disciplina";
-            this.disciplina.Name = "disciplina";
-            // 
-            // Nota1
-            // 
-            this.Nota1.HeaderText = "nota1";
-            this.Nota1.Name = "Nota1";
             // 
             // NotasAlunoForm
             // 
@@ -284,7 +270,5 @@
         private System.Windows.Forms.ComboBox comboBoxDisciplina;
         private System.Windows.Forms.Button buttonLimpar;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn disciplina;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nota1;
     }
 }

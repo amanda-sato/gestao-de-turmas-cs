@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gerenciador_de_Turmas
@@ -21,16 +14,6 @@ namespace Gerenciador_de_Turmas
 
             textBoxIdAluno.Text = aluno.getMatricula().ToString();
             textBoxNomeAluno.Text = aluno.getNomeAluno();
-
-            foreach (Nota n in Program.GetState().notas)
-            {
-                if (n.getAlunoId() == this.aluno.getId())
-                {
-                    string[] row = { n.getDisciplinaId().ToString(), n.getNota().ToString() };
-                    dataGridView.Rows.Add(row);
-                    //listBox.Items.Add(n);
-                }
-            }
         }
 
         private string getNomeEntidade() => "Nota";
@@ -41,6 +24,20 @@ namespace Gerenciador_de_Turmas
             {
                 comboBoxDisciplina.Items.Add(d);
             }
+
+            dataGridView.AutoGenerateColumns = true;
+            
+            dataGridView.DataSource = Program.GetState().notas.ToBindingSource(
+                alunoId: aluno.getId(),
+                disciplinas: Program.GetState().disciplinas,
+                alunos: Program.GetState().alunos
+            );
+
+            dataGridView.Columns["id"].Visible = false;
+            dataGridView.Columns["alunoId"].Visible = false;
+            dataGridView.Columns["disciplinaId"].Visible = false;
+            dataGridView.Columns["nomeAluno"].Visible = false;
+
 
             resetaForm();
         }
