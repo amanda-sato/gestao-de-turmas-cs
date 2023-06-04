@@ -6,6 +6,7 @@ namespace Gerenciador_de_Turmas
     public partial class NotasAlunoForm : Form
     {
         private Aluno aluno;
+        private BindingSource bindingSource;
 
         public NotasAlunoForm(Aluno aluno)
         {
@@ -14,6 +15,8 @@ namespace Gerenciador_de_Turmas
 
             textBoxIdAluno.Text = aluno.getMatricula().ToString();
             textBoxNomeAluno.Text = aluno.getNomeAluno();
+
+            bindingSource = Program.GetState().notas.ToBindingSource(aluno.getId());
         }
 
         private string getNomeEntidade() => "Nota";
@@ -25,14 +28,7 @@ namespace Gerenciador_de_Turmas
                 comboBoxDisciplina.Items.Add(d);
             }
 
-            dataGridView.AutoGenerateColumns = true;
-            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            dataGridView.DataSource = Program.GetState().notas.ToBindingSource(
-                alunoId: aluno.getId(),
-                disciplinas: Program.GetState().disciplinas,
-                alunos: Program.GetState().alunos
-            );
+            dataGridView.DataSource = bindingSource;
 
             dataGridView.Columns["alunoId"].Visible = false;
             dataGridView.Columns["disciplinaId"].Visible = false;
@@ -47,28 +43,15 @@ namespace Gerenciador_de_Turmas
 
         private void buttonLimpar_Click(object sender, EventArgs e) => resetaForm();
 
-        //private void listBox_singleClick(object sender, EventArgs e)
-        //{
-        //    if (listBox.SelectedItem == null) return;
-
-        //    modoEdicao();
-
-        //    Nota nota = listBox.SelectedItem as Nota;
-
-        //    comboBoxDisciplina.SelectedItem = Program.GetState().disciplinas.GetPorId(nota.getDisciplinaId());
-        //    textBoxNota.Text = nota.getNota().ToString();
-        //}
-
-        //private void buttonSalvar_Click(object sender, EventArgs e)
-        //{
-        //    if (listBox.SelectedItem == null)
-        //    {
-        //        adicionar(sender, e);
-        //        return;
-        //    }
-
-        //    editar(sender, e);
-        //}
+        private void buttonSalvar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView.SelectedRows.Count <= 0)
+            {
+                adicionar(sender, e);
+                return;
+            }
+            //editar(sender, e);
+        }
 
         private void adicionar(object sender, EventArgs e)
         {
@@ -77,15 +60,16 @@ namespace Gerenciador_de_Turmas
                 Nota nota = new Nota();
 
                 int alunoId = int.Parse(textBoxIdAluno.Text);
-                int disciplinaId = (comboBoxDisciplina.SelectedItem as Disciplina).getId();
+                Disciplina disciplina = comboBoxDisciplina.SelectedItem as Disciplina;
                 double valorNota = double.Parse(textBoxNota.Text);
 
                 nota.setAlunoId(alunoId);
-                nota.setDisciplinaId(disciplinaId);
+                nota.setDisciplinaId(disciplina.getId());
                 nota.setNota(valorNota);
 
                 Program.GetState().notas.Add(nota);
-                dataGridView.Rows.Add(nota);
+
+                bindingSource.Add((NotaGrid)nota);
 
                 resetaForm();
             }
@@ -116,7 +100,8 @@ namespace Gerenciador_de_Turmas
 
         private void resetaForm()
         {
-            //listBox.ClearSelected();
+            dataGridView.ClearSelection();
+            dataGridView.CurrentCell = null;
 
             comboBoxDisciplina.SelectedItem = null;
             comboBoxDisciplina.SelectedText = "--Selecione--";
@@ -153,6 +138,18 @@ namespace Gerenciador_de_Turmas
 
             e.Value = "--";
             e.FormattingApplied = true;
+        }
+
+        private void dataGridView_Click(object sender, EventArgs e)
+        {
+            if (dataGridView.SelectedRows.Count <= 0) return;
+
+            modoEdicao();
+
+            NotaGrid notaGrid = (NotaGrid)dataGridView.SelectedRows[0].DataBoundItem;
+
+            comboBoxDisciplina.SelectedItem = Program.GetState().disciplinas.GetPorId(notaGrid.disciplinaId);
+            textBoxNota.Text = notaGrid.nota.ToString();
         }
     }
 }

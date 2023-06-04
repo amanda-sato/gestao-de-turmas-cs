@@ -9,8 +9,11 @@ namespace Gerenciador_de_Turmas
 {
     public class NotaRepo : Repo<Nota>
     {
-        public BindingSource ToBindingSource(DisciplinaRepo disciplinas, AlunoRepo alunos, int alunoId, int maxNotas = 3)
+        public BindingSource ToBindingSource(int alunoId)
         {
+            DisciplinaRepo disciplinas = Program.GetState().disciplinas;
+            AlunoRepo alunos = Program.GetState().alunos;
+
             HashSet<int> disciplinasComNotaDoAluno = new HashSet<int>();
             List<NotaGrid> notas = new List<NotaGrid>();
 
@@ -25,14 +28,7 @@ namespace Gerenciador_de_Turmas
                         disciplinasComNotaDoAluno.Add(n.getDisciplinaId());
                     }
 
-                    notas.Add(new NotaGrid(
-                        id: n.getId(),
-                        alunoId: alunoId,
-                        nomeAluno: nomeAluno,
-                        disciplinaId: n.getDisciplinaId(),
-                        nomesDisc: disciplinas.GetPorId(n.getDisciplinaId()).getNomeDisc(),
-                        nota: n.getNota()
-                    ));
+                    notas.Add(n);
                 }
             }
 

@@ -54,5 +54,17 @@ namespace Gerenciador_de_Turmas
         {
             return $"{alunoId} - {disciplinaId} : {id} - {nota}";
         }
+
+        public static implicit operator NotaGrid(Nota n)
+        {
+            return new NotaGrid(
+                id: n.getId(),
+                alunoId: n.getAlunoId(),
+                nomeAluno: Program.GetState().alunos.GetPorId(n.getAlunoId()).getNomeAluno(),
+                disciplinaId: n.getDisciplinaId(),
+                nomesDisc: Program.GetState().disciplinas.GetPorId(n.getDisciplinaId()).getNomeDisc(),
+                nota: n.getNota()
+            );
+        }
     }
 }

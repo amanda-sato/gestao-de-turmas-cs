@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 // e https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.datagridview.datasource?view=windowsdesktop-7.0
 namespace Gerenciador_de_Turmas
 {
-    internal class NotaGrid : IComparable<NotaGrid>
+    public class NotaGrid : IComparable<NotaGrid>
     {
         public int id {  get; set; }
 
@@ -42,9 +42,14 @@ namespace Gerenciador_de_Turmas
             this.nota = nota;
         }
 
+        public static implicit operator Nota(NotaGrid n) => new Nota(n.alunoId, n.disciplinaId, n.nota, n.id);
+
         public int CompareTo(NotaGrid other)
         {
             if (other == null) return 1;
+
+            if (id < 0) return -1;
+            if (other.id < 0) return 1;
 
             return disciplinaId != other.disciplinaId
                 ? disciplinaId.CompareTo(other.disciplinaId)
