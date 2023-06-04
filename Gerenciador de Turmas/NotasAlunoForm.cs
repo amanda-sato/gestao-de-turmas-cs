@@ -33,11 +33,9 @@ namespace Gerenciador_de_Turmas
                 alunos: Program.GetState().alunos
             );
 
-            dataGridView.Columns["id"].Visible = false;
             dataGridView.Columns["alunoId"].Visible = false;
             dataGridView.Columns["disciplinaId"].Visible = false;
             dataGridView.Columns["nomeAluno"].Visible = false;
-
 
             resetaForm();
         }
