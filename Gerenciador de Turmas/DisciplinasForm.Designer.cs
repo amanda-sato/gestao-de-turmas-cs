@@ -166,7 +166,6 @@
             this.AcceptButton = this.buttonSalvar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.buttonLimpar;
             this.ClientSize = new System.Drawing.Size(649, 399);
             this.Controls.Add(this.buttonLimpar);
             this.Controls.Add(this.buttonRemover);
@@ -181,7 +180,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "DisciplinasForm";
             this.Text = "Menu";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DisciplinasForm_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

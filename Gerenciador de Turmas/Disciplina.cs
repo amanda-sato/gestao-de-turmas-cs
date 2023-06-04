@@ -38,9 +38,6 @@ namespace Gerenciador_de_Turmas
         public void setId(int id) { this.id = id; }
         public void setNomeDisc(string nomeDisc) { this.nomeDisc = nomeDisc; }
 
-
-        
-
         public override string ToString()
         {
             return $"{id} : {nomeDisc} ";

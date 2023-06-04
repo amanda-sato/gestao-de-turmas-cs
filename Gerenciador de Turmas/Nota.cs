@@ -22,7 +22,6 @@ namespace Gerenciador_de_Turmas
             alunoId = 0;
             disciplinaId = 0;
             nota = 0;
-
         }       
 
         public Nota(int alunoId, int disciplinaId, double nota, int id = -1)
@@ -56,6 +55,16 @@ namespace Gerenciador_de_Turmas
             return $"{alunoId} - {disciplinaId} : {id} - {nota}";
         }
 
-
+        public static implicit operator NotaGrid(Nota n)
+        {
+            return new NotaGrid(
+                id: n.getId(),
+                alunoId: n.getAlunoId(),
+                nomeAluno: Program.GetState().alunos.GetPorId(n.getAlunoId()).getNomeAluno(),
+                disciplinaId: n.getDisciplinaId(),
+                nomesDisc: Program.GetState().disciplinas.GetPorId(n.getDisciplinaId()).getNomeDisc(),
+                nota: n.getNota()
+            );
+        }
     }
 }

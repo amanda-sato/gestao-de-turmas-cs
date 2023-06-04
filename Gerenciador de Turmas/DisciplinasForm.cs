@@ -5,14 +5,11 @@ namespace Gerenciador_de_Turmas
 {
     public partial class DisciplinasForm : Form
     {
-        public static DisciplinasForm instance;
-
         public DisciplinasForm()
         {
             InitializeComponent();
             init();
 
-            instance = this;
             carregaEntidade();
             resetaForm();
         }
@@ -71,7 +68,7 @@ namespace Gerenciador_de_Turmas
             editar(sender, e);
         }
 
-        protected void salvar(Object sender, EventArgs e)
+        protected void salvar(object sender, EventArgs e)
         {
             try
             {
@@ -161,11 +158,6 @@ namespace Gerenciador_de_Turmas
         {
             buttonRemover.Enabled = true;
             buttonSalvar.Text = $"Editar {getNomeEntidade()}";
-        }
-
-        private void DisciplinasForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            instance = null;
         }
     }
 }
