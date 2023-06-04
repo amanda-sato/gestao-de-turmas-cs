@@ -9,7 +9,7 @@ namespace Gerenciador_de_Turmas
 {
     public class NotaRepo : Repo<Nota>
     {
-        public BindingSource ToBindingSource(int alunoId)
+        public List<NotaGrid> ToBindingSourceList(int alunoId)
         {
             DisciplinaRepo disciplinas = Program.GetState().disciplinas;
             AlunoRepo alunos = Program.GetState().alunos;
@@ -49,10 +49,7 @@ namespace Gerenciador_de_Turmas
 
             notas.Sort();
 
-            BindingSource list = new BindingSource();
-            list.DataSource = notas;
-
-            return list;
+            return notas;
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Gerenciador_de_Turmas
@@ -6,17 +8,13 @@ namespace Gerenciador_de_Turmas
     public partial class NotasAlunoForm : Form
     {
         private Aluno aluno;
+        private List<NotaGrid> notasGrid;
         private BindingSource bindingSource;
 
         public NotasAlunoForm(Aluno aluno)
         {
             InitializeComponent();
             this.aluno = aluno;
-
-            textBoxIdAluno.Text = aluno.getMatricula().ToString();
-            textBoxNomeAluno.Text = aluno.getNomeAluno();
-
-            bindingSource = Program.GetState().notas.ToBindingSource(aluno.getId());
         }
 
         private string getNomeEntidade() => "Nota";
@@ -28,6 +26,13 @@ namespace Gerenciador_de_Turmas
                 comboBoxDisciplina.Items.Add(d);
             }
 
+            textBoxIdAluno.Text = aluno.getMatricula().ToString();
+            textBoxNomeAluno.Text = aluno.getNomeAluno();
+
+            notasGrid = Program.GetState().notas.ToBindingSourceList(aluno.getId());
+
+            bindingSource = new BindingSource();
+            bindingSource.DataSource = notasGrid;
             dataGridView.DataSource = bindingSource;
 
             dataGridView.Columns["alunoId"].Visible = false;
@@ -50,7 +55,8 @@ namespace Gerenciador_de_Turmas
                 adicionar(sender, e);
                 return;
             }
-            //editar(sender, e);
+
+            editar(sender, e);
         }
 
         private void adicionar(object sender, EventArgs e)
@@ -68,8 +74,10 @@ namespace Gerenciador_de_Turmas
                 nota.setNota(valorNota);
 
                 Program.GetState().notas.Add(nota);
+                notasGrid.Add((NotaGrid)nota);
+                notasGrid.Sort();
 
-                bindingSource.Add((NotaGrid)nota);
+                bindingSource.ResetBindings(false);
 
                 resetaForm();
             }
@@ -79,24 +87,24 @@ namespace Gerenciador_de_Turmas
             }
         }
 
-        //private void editar(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        Nota nota = listBox.SelectedItem as Nota;
+        private void editar(object sender, EventArgs e)
+        {
+            try
+            {
+                NotaGrid notaGrid = (NotaGrid)dataGridView.SelectedRows[0].DataBoundItem;
 
-        //        nota.setNota(double.Parse(textBoxNota.Text));
+                notaGrid.nota = double.Parse(textBoxNota.Text);
 
-        //        Program.GetState().notas.Atualizar(nota);
-        //        listBox.Items[listBox.SelectedIndex] = nota;
+                Program.GetState().notas.Atualizar(notaGrid);
+                bindingSource.ResetBindings(false);
 
-        //        resetaForm();
-        //    } 
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+                resetaForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         private void resetaForm()
         {
@@ -124,10 +132,11 @@ namespace Gerenciador_de_Turmas
 
         private void buttonRemover_Click(object sender, EventArgs e)
         {
-            //Nota nota = listBox.SelectedItem as Nota;
+            NotaGrid notaGrid = (NotaGrid)dataGridView.SelectedRows[0].DataBoundItem;
 
-            //Program.GetState().notas.Remove(nota);
-            //listBox.Items.Remove(nota);
+            Program.GetState().notas.Remove(notaGrid);
+            notasGrid.Remove(notaGrid);
+            bindingSource.ResetBindings(false);
 
             resetaForm();
         }

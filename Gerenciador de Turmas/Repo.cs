@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace Gerenciador_de_Turmas
 {
@@ -25,12 +26,21 @@ namespace Gerenciador_de_Turmas
 
         public bool Remove(T item)
         {
-            return _list.Remove(item);
+            int index = _list.FindIndex(e => e.getId() == item.getId());
+
+            if (index < 0)
+            {
+                throw new System.Exception($"Não há item com id {item.getId()}");
+            }
+
+            _list.RemoveAt(index);
+
+            return true;
         }
 
         public void Atualizar(T item)
         {
-            int index = _list.IndexOf(item);
+            int index = _list.FindIndex(e => e.getId() == item.getId());
 
             if (index < 0)
             {
