@@ -17,8 +17,6 @@ namespace Gerenciador_de_Turmas
             HashSet<int> disciplinasComNotaDoAluno = new HashSet<int>();
             List<NotaGrid> notas = new List<NotaGrid>();
 
-            string nomeAluno = alunos.GetPorId(alunoId).getNomeAluno();
-
             foreach (Nota n in _list)
             {
                 if (n.getAlunoId() == alunoId)
