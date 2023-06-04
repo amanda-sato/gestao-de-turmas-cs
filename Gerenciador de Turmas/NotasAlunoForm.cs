@@ -26,7 +26,8 @@ namespace Gerenciador_de_Turmas
             }
 
             dataGridView.AutoGenerateColumns = true;
-            
+            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
             dataGridView.DataSource = Program.GetState().notas.ToBindingSource(
                 alunoId: aluno.getId(),
                 disciplinas: Program.GetState().disciplinas,
