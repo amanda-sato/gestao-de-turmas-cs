@@ -163,7 +163,6 @@
             // 
             // buttonRemover
             // 
-            this.buttonRemover.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonRemover.Location = new System.Drawing.Point(433, 312);
             this.buttonRemover.Name = "buttonRemover";
             this.buttonRemover.Size = new System.Drawing.Size(144, 35);
@@ -208,7 +207,6 @@
             // 
             // buttonLimpar
             // 
-            this.buttonLimpar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonLimpar.Location = new System.Drawing.Point(433, 277);
             this.buttonLimpar.Name = "buttonLimpar";
             this.buttonLimpar.Size = new System.Drawing.Size(145, 29);
@@ -222,7 +220,6 @@
             this.AcceptButton = this.buttonSalvar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.buttonLimpar;
             this.ClientSize = new System.Drawing.Size(612, 428);
             this.Controls.Add(this.labelIdTurma);
             this.Controls.Add(this.textBoxTurma);
