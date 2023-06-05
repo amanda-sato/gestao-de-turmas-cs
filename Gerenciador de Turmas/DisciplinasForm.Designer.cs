@@ -140,7 +140,6 @@
             // 
             // buttonRemover
             // 
-            this.buttonRemover.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonRemover.Enabled = false;
             this.buttonRemover.Location = new System.Drawing.Point(428, 220);
             this.buttonRemover.Name = "buttonRemover";
@@ -152,7 +151,6 @@
             // 
             // buttonLimpar
             // 
-            this.buttonLimpar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonLimpar.Location = new System.Drawing.Point(428, 261);
             this.buttonLimpar.Name = "buttonLimpar";
             this.buttonLimpar.Size = new System.Drawing.Size(134, 34);
