@@ -9,6 +9,13 @@ namespace Gerenciador_de_Turmas
 {
     public class NotaRepo : Repo<Nota>
     {
+        public bool ExistePara(Disciplina disciplina, Aluno aluno)
+        {
+            int index = _list.FindIndex(n => n.getDisciplinaId() == disciplina.getId() && n.getAlunoId() == aluno.getId());
+
+            return index >= 0;
+        }
+
         public List<NotaGrid> ToBindingSourceList(int alunoId)
         {
             DisciplinaRepo disciplinas = Program.GetState().disciplinas;

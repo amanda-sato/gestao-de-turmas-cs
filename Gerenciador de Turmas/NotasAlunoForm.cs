@@ -8,8 +8,10 @@ namespace Gerenciador_de_Turmas
     public partial class NotasAlunoForm : Form
     {
         private Aluno aluno;
-        private List<NotaGrid> notasGrid;
         private BindingSource bindingSource;
+
+        private List<NotaGrid> notasGrid;
+        private List<Disciplina> disciplinasSemNota;
 
         public NotasAlunoForm(Aluno aluno)
         {
@@ -23,9 +25,10 @@ namespace Gerenciador_de_Turmas
         {
             foreach (Disciplina d in Program.GetState().disciplinas)
             {
-                comboBoxDisciplina.Items.Add(d);
                 listBoxDisc.Items.Add(d);
             }
+
+            carregaComboBoxDisciplina();
 
             textBoxIdAluno.Text = aluno.getMatricula().ToString();
             textBoxNomeAluno.Text = aluno.getNomeAluno();
@@ -39,8 +42,22 @@ namespace Gerenciador_de_Turmas
             dataGridView.Columns["alunoId"].Visible = false;
             dataGridView.Columns["disciplinaId"].Visible = false;
             dataGridView.Columns["nomeAluno"].Visible = false;
+            dataGridView.Columns["id"].Visible = false;
 
             resetaForm();
+        }
+
+        private void carregaComboBoxDisciplina()
+        {
+            comboBoxDisciplina.Items.Clear();
+
+            foreach (Disciplina d in Program.GetState().disciplinas)
+            {
+                if (!Program.GetState().notas.ExistePara(d, aluno))
+                {
+                    comboBoxDisciplina.Items.Add(d);
+                }
+            }
         }
 
         private void voltarAoMenuTurmaToolStripMenuItem_Click(object sender, EventArgs e) => Close();
@@ -80,6 +97,11 @@ namespace Gerenciador_de_Turmas
 
                 bindingSource.ResetBindings(false);
 
+                if (comboBoxDisciplina.Items.Count <= 0)
+                {
+                    comboBoxDisciplina.Enabled = false;
+                }
+
                 resetaForm();
             }
             catch (Exception ex)
@@ -112,16 +134,22 @@ namespace Gerenciador_de_Turmas
             dataGridView.ClearSelection();
             dataGridView.CurrentCell = null;
 
-            comboBoxDisciplina.SelectedItem = null;
-            comboBoxDisciplina.SelectedText = "--Selecione--";
-
             buttonSalvar.Text = $"Adicionar {getNomeEntidade()}";
             buttonSalvar.Enabled = false;
+
+            carregaComboBoxDisciplina();
+
+            comboBoxDisciplina.Enabled = comboBoxDisciplina.Items.Count > 0;
+            comboBoxDisciplina.SelectedItem = null;
+            comboBoxDisciplina.Text = "--Selecione--";
+
             textBoxNota.Clear();
+            textBoxNota.Enabled = comboBoxDisciplina.Items.Count > 0;
         }
 
         protected void modoEdicao()
         {
+            comboBoxDisciplina.Enabled = false;
             buttonRemover.Enabled = true;
             buttonSalvar.Text = $"Editar {getNomeEntidade()}";
         }
@@ -155,11 +183,13 @@ namespace Gerenciador_de_Turmas
             if (dataGridView.SelectedRows.Count <= 0) return;
 
             modoEdicao();
-
+         
             NotaGrid notaGrid = (NotaGrid)dataGridView.SelectedRows[0].DataBoundItem;
-
-            comboBoxDisciplina.SelectedItem = Program.GetState().disciplinas.GetPorId(notaGrid.disciplinaId);
             textBoxNota.Text = notaGrid.nota.ToString();
+
+            Disciplina disciplina = Program.GetState().disciplinas.GetPorId(notaGrid.disciplinaId);
+            comboBoxDisciplina.Items.Add(disciplina);
+            comboBoxDisciplina.SelectedItem = disciplina;
         }
     }
 }

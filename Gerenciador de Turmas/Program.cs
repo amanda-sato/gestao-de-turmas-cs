@@ -60,12 +60,10 @@ namespace Gerenciador_de_Turmas
 
             // Notas Jose Emanuel
             state.notas.Add(new Nota(1, 1, 10.50));
-            state.notas.Add(new Nota(1, 2, 15.234));
             state.notas.Add(new Nota(1, 2, 16.77));
 
             // Notas Maria Joaquina
             state.notas.Add(new Nota(2, 1, 12.00));
-            state.notas.Add(new Nota(2, 2, 13.00));
             state.notas.Add(new Nota(2, 2, 14.645));
 
             // Notas Emilia Clark
