@@ -9,9 +9,7 @@ namespace Gerenciador_de_Turmas
     {
         private Aluno aluno;
         private BindingSource bindingSource;
-
         private List<NotaGrid> notasGrid;
-        private List<Disciplina> disciplinasSemNota;
 
         public NotasAlunoForm(Aluno aluno)
         {
