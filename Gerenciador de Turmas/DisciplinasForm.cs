@@ -48,7 +48,6 @@ namespace Gerenciador_de_Turmas
 
         protected void voltarAoMenuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Program.GetMainForm().Focus();
             this.Close();
         }
 
@@ -145,7 +144,7 @@ namespace Gerenciador_de_Turmas
 
         protected void resetaForm()
         {
-            textBoxId.Text = Disciplina.getNextId().ToString();
+            textBoxId.Text = Program.GetState().disciplinas.getNextId().ToString();
             textBoxNome.Clear();
 
             listBox.ClearSelected();

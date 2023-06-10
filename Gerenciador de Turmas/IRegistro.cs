@@ -8,6 +8,9 @@ namespace Gerenciador_de_Turmas
 {
     public interface IRegistro
     {
+        void setId(int id);
         int getId();
+        string paraTxt();
+        void deTxt(string txt);
     }
 }

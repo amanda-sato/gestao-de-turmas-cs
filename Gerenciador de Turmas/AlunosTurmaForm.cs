@@ -127,7 +127,7 @@ namespace Gerenciador_de_Turmas
 
         private void resetaForm()
         {
-            textBoxId.Text = Aluno.getNextId().ToString();
+            textBoxId.Text = Program.GetState().alunos.getNextId().ToString();
 
             textBoxNome.Clear();
             textBoxGenero.Clear();

@@ -127,7 +127,7 @@ namespace Gerenciador_de_Turmas
 
         protected void resetaForm()
         {
-            textBoxId.Text = Turma.getNextId().ToString();
+            textBoxId.Text = Program.GetState().turmas.getNextId().ToString();
             textBoxNome.Clear();
 
             listBox.ClearSelected();

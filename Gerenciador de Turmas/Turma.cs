@@ -8,30 +8,35 @@ namespace Gerenciador_de_Turmas
 {
     public class Turma : IRegistro
     {
-        private static int nextId = 1;
-
         private int id;
         private string nomeTurma;
 
         public Turma()
         {
-            id = nextId++;
+            id = -1;
             nomeTurma = "";
         }
 
         public Turma(string nomeTurma, int id = -1)
         {
-            this.id = id >= 0 ? id : nextId++;
+            this.id = id;
             this.nomeTurma = nomeTurma;
         }
 
-        public static int getNextId()
+        public void deTxt(string txt)
         {
-            return nextId;
+            string[] raw = txt.Split(',');
+            id = int.Parse(raw[0]);
+            nomeTurma = raw[1];
         }
 
         public int getId() { return id; }
         public string getNomeTurma() { return nomeTurma; }
+
+        public string paraTxt()
+        {
+            return $"{id},{nomeTurma}";
+        }
 
         public void setId(int id) { this.id = id; }
         public void setNomeTurma(string nomeTurma) { this.nomeTurma = nomeTurma; }

@@ -8,8 +8,6 @@ namespace Gerenciador_de_Turmas
 {
     public class Aluno : IRegistro
     {
-        private static int nextId = 1;
-
         private int matricula;
         private int turmaId;
 
@@ -18,7 +16,7 @@ namespace Gerenciador_de_Turmas
 
         public Aluno()
         {
-            matricula = nextId++;
+            matricula = -1;
             nomeAluno = "";
             genero = "";
             turmaId = -1;
@@ -26,15 +24,10 @@ namespace Gerenciador_de_Turmas
 
         public Aluno(string nomeAluno, string genero, int turmaId, int matricula = -1)
         {
-            this.matricula = matricula >= 0 ? matricula : nextId++;
+            this.matricula = matricula;
             this.nomeAluno = nomeAluno;
             this.turmaId = turmaId;
             this.genero = genero;
-        }
-
-        public static int getNextId()
-        {
-            return nextId;
         }
 
         public int getMatricula() { return matricula; }
@@ -90,6 +83,26 @@ namespace Gerenciador_de_Turmas
             }
 
             return nota >= 10 ? "Aprovado" : "Reprovado";
+        }
+
+        public string paraTxt()
+        {
+            return $"{matricula},{turmaId},{nomeAluno},{genero}";
+        }
+
+        public void deTxt(string txt)
+        {
+            string[] raw = txt.Split(',');
+
+            matricula = int.Parse(raw[0]);
+            turmaId = int.Parse(raw[1]);
+            nomeAluno = raw[2];
+            genero = raw[3];
+        }
+
+        public void setId(int id)
+        {
+            setMatricula(id);
         }
     }
 }

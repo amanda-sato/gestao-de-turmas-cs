@@ -9,8 +9,6 @@ namespace Gerenciador_de_Turmas
 {
     public class Nota : IRegistro
     {
-        private static int nextId = 1;
-
         private int id;
         private int alunoId;
         private int disciplinaId;
@@ -18,7 +16,7 @@ namespace Gerenciador_de_Turmas
 
         public Nota()
         {
-            id = nextId++;
+            id = -1;
             alunoId = 0;
             disciplinaId = 0;
             nota = 0;
@@ -26,21 +24,30 @@ namespace Gerenciador_de_Turmas
 
         public Nota(int alunoId, int disciplinaId, double nota, int id = -1)
         {
-            this.id = id >= 0 ? id : nextId++;
+            this.id = id;
             this.alunoId = alunoId;
             this.disciplinaId = disciplinaId;
             this.nota = nota;
         }
 
-        public static int getNextId()
+        public void deTxt(string txt)
         {
-            return nextId;
+            string[] raw = txt.Split(',');
+            id = int.Parse(raw[0]);
+            alunoId = int.Parse(raw[1]);
+            disciplinaId = int.Parse(raw[2]);
+            nota = double.Parse(raw[3]);
         }
 
         public int getAlunoId() {  return alunoId; }
         public int getDisciplinaId() {  return disciplinaId; }
         public int getId() { return id; }
         public double getNota() {  return nota; }
+
+        public string paraTxt()
+        {
+            return $"{id},{alunoId},{disciplinaId},{nota}";
+        }
 
         public void setAlunoId(int alunoId) { this.alunoId = alunoId; }
 
