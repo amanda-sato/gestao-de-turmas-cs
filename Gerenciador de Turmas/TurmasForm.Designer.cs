@@ -130,6 +130,7 @@
             this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem.Name = "taxaDeAprovaçãoPorDisciplinaToolStripMenuItem";
             this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
             this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem.Text = "Taxa de Aprovação Por Disciplina";
+            this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem.Click += new System.EventHandler(this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem_Click);
             // 
             // encerrarProgramaToolStripMenuItem
             // 

@@ -135,5 +135,7 @@ namespace Gerenciador_de_Turmas
             buttonSalvar.Text = $"Adicionar {getNomeEntidade()}";
             buttonRemover.Enabled = false;
         }
+
+        private void taxaDeAprovaçãoPorDisciplinaToolStripMenuItem_Click(object sender, EventArgs e) => new TaxaAprovacaoDisciplinas().ShowDialog();
     }
 }
