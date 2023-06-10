@@ -46,7 +46,7 @@ namespace Gerenciador_de_Turmas
 
                 if (totalNotasDisciplina > 0)
                 {
-                    dataGridView.Rows.Add(new string[]{ d.getNomeDisc(), String.Format("{0:0.00}", totalAprovados / totalNotasDisciplina * 100)})  ;
+                    dataGridView.Rows.Add(new string[]{ d.getNomeDisc(), String.Format("{0:0.00}", (double)(totalAprovados) / totalNotasDisciplina * 100)})  ;
                 }
                 else
                 {
