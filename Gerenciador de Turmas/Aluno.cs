@@ -79,5 +79,17 @@ namespace Gerenciador_de_Turmas
         {
             return matricula;
         }
+
+        public string situacao(Disciplina disciplina)
+        {
+            double nota = Program.GetState().notas.NotaAlunoEm(disciplina, this);
+
+            if (nota < 0)
+            {
+                return "Sem dados";
+            }
+
+            return nota >= 10 ? "Aprovado" : "Reprovado";
+        }
     }
 }

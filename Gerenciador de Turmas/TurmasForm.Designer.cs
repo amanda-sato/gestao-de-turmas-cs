@@ -118,6 +118,7 @@
             this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem.Name = "relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem";
             this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
             this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem.Text = "Relação de AlunosAprovados e Reprovados";
+            this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem.Click += new System.EventHandler(this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem_Click);
             // 
             // médiaGeralPorAlunoToolStripMenuItem
             // 

@@ -16,6 +16,18 @@ namespace Gerenciador_de_Turmas
             return index >= 0;
         }
 
+        public double NotaAlunoEm(Disciplina disciplina, Aluno aluno)
+        {
+            int index = _list.FindIndex(n => n.getDisciplinaId() == disciplina.getId() && n.getAlunoId() == aluno.getId());
+
+            if (index >= 0)
+            {
+                return _list[index].getNota();
+            }
+
+            return -1;
+        }
+
         public List<NotaGrid> ToBindingSourceList(int alunoId)
         {
             DisciplinaRepo disciplinas = Program.GetState().disciplinas;

@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="Aluno.cs" />
     <Compile Include="AlunoRepo.cs" />
+    <Compile Include="RelacaoAlunosAprovadosReprovados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RelacaoAlunosAprovadosReprovados.Designer.cs">
+      <DependentUpon>RelacaoAlunosAprovadosReprovados.cs</DependentUpon>
+    </Compile>
     <Compile Include="MediaGeralPorAluno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     <Compile Include="Turma.cs" />
     <EmbeddedResource Include="MediaGeralPorAluno.resx">
       <DependentUpon>MediaGeralPorAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RelacaoAlunosAprovadosReprovados.resx">
+      <DependentUpon>RelacaoAlunosAprovadosReprovados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TaxaAprovacaoDisciplinas.resx">
       <DependentUpon>TaxaAprovacaoDisciplinas.cs</DependentUpon>

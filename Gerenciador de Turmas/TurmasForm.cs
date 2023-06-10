@@ -139,5 +139,7 @@ namespace Gerenciador_de_Turmas
         private void taxaDeAprovaçãoPorDisciplinaToolStripMenuItem_Click(object sender, EventArgs e) => new TaxaAprovacaoDisciplinas().ShowDialog();
 
         private void médiaGeralPorAlunoToolStripMenuItem_Click(object sender, EventArgs e) => new MediaGeralPorAluno().ShowDialog();
+
+        private void relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem_Click(object sender, EventArgs e) => new RelacaoAlunosAprovadosReprovados().ShowDialog();
     }
 }
