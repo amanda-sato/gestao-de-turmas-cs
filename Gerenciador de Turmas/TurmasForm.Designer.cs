@@ -124,6 +124,7 @@
             this.médiaGeralPorAlunoToolStripMenuItem.Name = "médiaGeralPorAlunoToolStripMenuItem";
             this.médiaGeralPorAlunoToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
             this.médiaGeralPorAlunoToolStripMenuItem.Text = "Média Geral Por Aluno";
+            this.médiaGeralPorAlunoToolStripMenuItem.Click += new System.EventHandler(this.médiaGeralPorAlunoToolStripMenuItem_Click);
             // 
             // taxaDeAprovaçãoPorDisciplinaToolStripMenuItem
             // 
