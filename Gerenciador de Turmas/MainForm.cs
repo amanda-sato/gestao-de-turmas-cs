@@ -25,5 +25,14 @@ namespace Gerenciador_de_Turmas
         private void buttonDisciplinas_Click(object sender, EventArgs e) => new DisciplinasForm().ShowDialog();
 
         private void fecharProgramaToolStripMenuItem_Click(object sender, EventArgs e) => Close();
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialogResult =  MessageBox.Show("Deseja salvar as alterações?", "Oi!", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.No) return;
+
+            state.salva();
+        }
     }
 }

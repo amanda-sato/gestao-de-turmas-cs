@@ -33,7 +33,7 @@ namespace Gerenciador_de_Turmas
             this.id = id;
             this.alunoId = alunoId;
             this.disciplinaId = disciplinaId;
-            this.nota = nota;
+            setNota(nota);
         }
 
         public int getAlunoId() {  return alunoId; }
@@ -47,7 +47,15 @@ namespace Gerenciador_de_Turmas
 
         public void setId(int id) { this.id = id; }
 
-        public void setNota(double nota) { this.nota = nota; }
+        public void setNota(double nota) 
+        {
+            if (nota < 0 || nota > 20)
+            {
+                throw new ArgumentException($"A nota precisa ser um valor entre 0 e 20.\n{nota} foi inserido.");
+            }
+
+            this.nota = nota; 
+        }
 
         public override string ToString()
         {

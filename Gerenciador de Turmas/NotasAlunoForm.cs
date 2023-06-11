@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -148,8 +148,10 @@ namespace Gerenciador_de_Turmas
         protected void modoEdicao()
         {
             comboBoxDisciplina.Enabled = false;
+            textBoxNota.Enabled = true;
             buttonRemover.Enabled = true;
             buttonSalvar.Text = $"Editar {getNomeEntidade()}";
+            buttonSalvar.Enabled = true;
         }
 
         private void comboBoxDisciplina_SelectedIndexChanged(object sender, EventArgs e)
@@ -180,14 +182,14 @@ namespace Gerenciador_de_Turmas
         {
             if (dataGridView.SelectedRows.Count <= 0) return;
 
-            modoEdicao();
-         
             NotaGrid notaGrid = (NotaGrid)dataGridView.SelectedRows[0].DataBoundItem;
             textBoxNota.Text = notaGrid.nota.ToString();
 
             Disciplina disciplina = Program.GetState().disciplinas.GetPorId(notaGrid.disciplinaId);
             comboBoxDisciplina.Items.Add(disciplina);
             comboBoxDisciplina.SelectedItem = disciplina;
+
+            modoEdicao();
         }
     }
 }

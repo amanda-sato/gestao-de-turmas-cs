@@ -29,8 +29,6 @@ namespace Gerenciador_de_Turmas
             }
 
             Application.Run(new MainForm(state));
-
-            state.salva();
         }
 
         public static State GetState() => state;
