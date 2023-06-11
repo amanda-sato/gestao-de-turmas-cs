@@ -25,18 +25,18 @@ namespace Gerenciador_de_Turmas
 
         public void carrega()
         {
-            disciplinas.carregarDe("disciplinas.txt");
-            turmas.carregarDe("turmas.txt");
-            alunos.carregarDe("alunos.txt");
-            notas.carregarDe("notas.txt");
+            disciplinas.carregarDe("disciplinas.json");
+            turmas.carregarDe("turmas.json");
+            alunos.carregarDe("alunos.json");
+            notas.carregarDe("notas.json");
         }
 
         public void salva()
         {
-            disciplinas.salvarPara("disciplinas.txt");
-            turmas.salvarPara("turmas.txt");
-            alunos.salvarPara("alunos.txt");
-            notas.salvarPara("notas.txt");
+            disciplinas.salvarPara("disciplinas.json");
+            turmas.salvarPara("turmas.json");
+            alunos.salvarPara("alunos.json");
+            notas.salvarPara("notas.json");
         }
 
         public void preenche()
