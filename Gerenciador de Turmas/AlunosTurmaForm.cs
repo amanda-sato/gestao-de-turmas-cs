@@ -57,7 +57,7 @@ namespace Gerenciador_de_Turmas
                 novoAluno
                     .setTurmaId(turma.getId())
                     .setNomeAluno(textBoxNome.Text)
-                    .setGenero(textBoxGenero.Text);
+                    .setGenero(comboBoxGenero.SelectedItem.ToString());
 
                 Program.GetState().alunos.Add(novoAluno);
                 listBox.Items.Add(novoAluno);
@@ -76,7 +76,7 @@ namespace Gerenciador_de_Turmas
 
             aluno
                 .setNomeAluno(textBoxNome.Text)
-                .setGenero(textBoxGenero.Text);
+                .setGenero(comboBoxGenero.SelectedItem.ToString());
 
             Program.GetState().alunos.Atualizar(aluno);
             listBox.Items[listBox.SelectedIndex] = aluno;
@@ -98,7 +98,7 @@ namespace Gerenciador_de_Turmas
             Aluno aluno = listBox.SelectedItem as Aluno;
 
             textBoxId.Text = aluno.getMatricula().ToString();
-            textBoxGenero.Text = aluno.getGenero();
+            comboBoxGenero.SelectedItem = aluno.getGenero();
             textBoxNome.Text = aluno.getNomeAluno();
 
             modoEdicao();
@@ -131,7 +131,8 @@ namespace Gerenciador_de_Turmas
             textBoxId.Text = Program.GetState().alunos.getNextId().ToString();
 
             textBoxNome.Clear();
-            textBoxGenero.Clear();
+
+            comboBoxGenero.SelectedItem = "F";
             listBox.ClearSelected();
 
             buttonSalvar.Text = $"Adicionar {getNomeEntidade()}";

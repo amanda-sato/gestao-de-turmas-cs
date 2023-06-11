@@ -38,7 +38,6 @@
             this.labelNome = new System.Windows.Forms.Label();
             this.labelId = new System.Windows.Forms.Label();
             this.textBoxId = new System.Windows.Forms.TextBox();
-            this.textBoxGenero = new System.Windows.Forms.TextBox();
             this.textBoxNome = new System.Windows.Forms.TextBox();
             this.buttonSalvar = new System.Windows.Forms.Button();
             this.buttonRemover = new System.Windows.Forms.Button();
@@ -47,6 +46,7 @@
             this.textBoxTurma = new System.Windows.Forms.TextBox();
             this.labelIdTurma = new System.Windows.Forms.Label();
             this.buttonLimpar = new System.Windows.Forms.Button();
+            this.comboBoxGenero = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,13 +137,6 @@
             this.textBoxId.Size = new System.Drawing.Size(139, 20);
             this.textBoxId.TabIndex = 6;
             // 
-            // textBoxGenero
-            // 
-            this.textBoxGenero.Location = new System.Drawing.Point(439, 191);
-            this.textBoxGenero.Name = "textBoxGenero";
-            this.textBoxGenero.Size = new System.Drawing.Size(139, 20);
-            this.textBoxGenero.TabIndex = 7;
-            // 
             // textBoxNome
             // 
             this.textBoxNome.Location = new System.Drawing.Point(439, 132);
@@ -215,12 +208,24 @@
             this.buttonLimpar.UseVisualStyleBackColor = true;
             this.buttonLimpar.Click += new System.EventHandler(this.buttonLimpar_Click);
             // 
+            // comboBoxGenero
+            // 
+            this.comboBoxGenero.FormattingEnabled = true;
+            this.comboBoxGenero.Items.AddRange(new object[] {
+            "F",
+            "M"});
+            this.comboBoxGenero.Location = new System.Drawing.Point(439, 195);
+            this.comboBoxGenero.Name = "comboBoxGenero";
+            this.comboBoxGenero.Size = new System.Drawing.Size(138, 21);
+            this.comboBoxGenero.TabIndex = 15;
+            // 
             // AlunosTurmaForm
             // 
             this.AcceptButton = this.buttonSalvar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(612, 428);
+            this.Controls.Add(this.comboBoxGenero);
             this.Controls.Add(this.labelIdTurma);
             this.Controls.Add(this.textBoxTurma);
             this.Controls.Add(this.labelTurma);
@@ -229,7 +234,6 @@
             this.Controls.Add(this.buttonLimpar);
             this.Controls.Add(this.buttonSalvar);
             this.Controls.Add(this.textBoxNome);
-            this.Controls.Add(this.textBoxGenero);
             this.Controls.Add(this.textBoxId);
             this.Controls.Add(this.labelId);
             this.Controls.Add(this.labelNome);
@@ -260,7 +264,6 @@
         private System.Windows.Forms.Label labelNome;
         private System.Windows.Forms.Label labelId;
         private System.Windows.Forms.TextBox textBoxId;
-        private System.Windows.Forms.TextBox textBoxGenero;
         private System.Windows.Forms.TextBox textBoxNome;
         private System.Windows.Forms.Button buttonSalvar;
         private System.Windows.Forms.Button buttonRemover;
@@ -269,5 +272,6 @@
         public System.Windows.Forms.TextBox textBoxTurma;
         private System.Windows.Forms.Label labelIdTurma;
         private System.Windows.Forms.Button buttonLimpar;
+        private System.Windows.Forms.ComboBox comboBoxGenero;
     }
 }
