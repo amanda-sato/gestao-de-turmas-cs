@@ -5,7 +5,7 @@ namespace Gerenciador_de_Turmas
 {
     public class DisciplinaRepo : Repo<Disciplina>
     {
-        public override void Add(Disciplina item)
+        public new void Add(Disciplina item)
         {
             int index = _list.FindIndex(d => Utils.normaliza(d.getNomeDisc()) == Utils.normaliza(item.getNomeDisc()));
 

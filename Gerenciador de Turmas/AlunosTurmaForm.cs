@@ -56,12 +56,13 @@ namespace Gerenciador_de_Turmas
 
                 novoAluno
                     .setTurmaId(turma.getId())
-                    .setMatricula(int.Parse(textBoxId.Text))
                     .setNomeAluno(textBoxNome.Text)
                     .setGenero(textBoxGenero.Text);
 
                 Program.GetState().alunos.Add(novoAluno);
                 listBox.Items.Add(novoAluno);
+
+                resetaForm();
             }
             catch (Exception ex)
             {

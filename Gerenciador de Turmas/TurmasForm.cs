@@ -61,9 +61,7 @@ namespace Gerenciador_de_Turmas
                 Turma novaTurma = new Turma();
 
                 string nomeTurma = textBoxNome.Text;
-                int id = int.Parse(textBoxId.Text);
                 
-                novaTurma.setId(id);
                 novaTurma.setNomeTurma(nomeTurma);
 
                 Program.GetState().turmas.Add(novaTurma);

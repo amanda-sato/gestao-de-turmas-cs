@@ -8,7 +8,7 @@ namespace Gerenciador_de_Turmas
 {
     public class TurmaRepo : Repo<Turma>
     {
-        public override void Add(Turma item)
+        public new void Add(Turma item)
         {
             int index = _list.FindIndex(t => Utils.normaliza(t.getNomeTurma()) == Utils.normaliza(item.getNomeTurma()));
 

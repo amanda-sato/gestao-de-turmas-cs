@@ -13,7 +13,7 @@ namespace Gerenciador_de_Turmas
 {
     public class Repo<T> : IEnumerable<T> where T : IRegistro, new()
     {
-        int nextId = 1;
+        protected static int nextId = 1;
         protected List<T> _list = new List<T>();
 
         public IEnumerator<T> GetEnumerator()
@@ -28,7 +28,7 @@ namespace Gerenciador_de_Turmas
 
         public int getNextId() => nextId;
 
-        public virtual void Add(T item)
+        public void Add(T item)
         {
             if (item.getId() < 0)
             {
@@ -123,6 +123,7 @@ namespace Gerenciador_de_Turmas
             _list = (List<T>)serializer.ReadObject(memoryStream);
 
             int maxId = _list.Max(item => item.getId());
+            MessageBox.Show(maxId.ToString());
             nextId = maxId + 1;
 
             streamReader.Close();

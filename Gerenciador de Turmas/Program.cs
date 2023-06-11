@@ -21,7 +21,7 @@ namespace Gerenciador_de_Turmas
             Application.SetCompatibleTextRenderingDefault(false);
 
             state = new State();
-            state.carrega();
+            //state.carrega();
 
             if (state.estaVazio())
             {

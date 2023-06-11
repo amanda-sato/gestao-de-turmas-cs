@@ -73,10 +73,8 @@ namespace Gerenciador_de_Turmas
             {
                 Disciplina novaDisciplina = new Disciplina();
 
-                int id = int.Parse(textBoxId.Text);
                 string nomeDisc = textBoxNome.Text;
 
-                novaDisciplina.setId(id);
                 novaDisciplina.setNomeDisc(nomeDisc);
 
                 Program.GetState().disciplinas.Add(novaDisciplina);
