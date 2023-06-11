@@ -123,7 +123,6 @@ namespace Gerenciador_de_Turmas
             _list = (List<T>)serializer.ReadObject(memoryStream);
 
             int maxId = _list.Max(item => item.getId());
-            MessageBox.Show(maxId.ToString());
             nextId = maxId + 1;
 
             streamReader.Close();
