@@ -53,5 +53,9 @@ namespace Gerenciador_de_Turmas
         {
             dataGridView.ClearSelection();
         }
+
+        protected void voltarAoMenuDeTurmaslToolStripMenuItem_Click(object sender, EventArgs e) => Close();
+
+        protected void encerrarProgramaToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
     }
 }
