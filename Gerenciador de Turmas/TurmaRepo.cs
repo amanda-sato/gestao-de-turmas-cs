@@ -10,15 +10,25 @@ namespace Gerenciador_de_Turmas
     {
         public new void Add(Turma item)
         {
-            int index = _list.FindIndex(t => Utils.normaliza(t.getNomeTurma()) == Utils.normaliza(item.getNomeTurma()));
+            FalhaSeInvalido(item);
+            base.Add(item);
+        }
+
+        public new void Atualizar(Turma item)
+        {
+            FalhaSeInvalido(item);
+            base.Atualizar(item);
+        }
+
+        private void FalhaSeInvalido(Turma item) 
+        {
+            int index = _list.FindIndex(t => t.getId() != item.getId() && Utils.normaliza(t.getNomeTurma()) == Utils.normaliza(item.getNomeTurma()));
 
             if (index >= 0)
             {
                 Turma t = _list[index];
                 throw new ArgumentException($"Uma turma de mesmo nome {item.getNomeTurma()} ja esta cadastrada ({t.getNomeTurma()}).");
             }
-
-            base.Add(item);
         }
     }
 }
