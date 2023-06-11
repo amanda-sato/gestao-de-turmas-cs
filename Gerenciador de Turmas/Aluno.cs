@@ -1,17 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Gerenciador_de_Turmas
 {
+    [DataContract]
     public class Aluno : IRegistro
     {
+        [DataMember]
         private int matricula;
+        [DataMember]
         private int turmaId;
 
+        [DataMember]
         private string nomeAluno;
+        [DataMember]
         private string genero;
 
         public Aluno()
@@ -83,21 +89,6 @@ namespace Gerenciador_de_Turmas
             }
 
             return nota >= 10 ? "Aprovado" : "Reprovado";
-        }
-
-        public string paraTxt()
-        {
-            return $"{matricula},{turmaId},{nomeAluno},{genero}";
-        }
-
-        public void deTxt(string txt)
-        {
-            string[] raw = txt.Split(',');
-
-            matricula = int.Parse(raw[0]);
-            turmaId = int.Parse(raw[1]);
-            nomeAluno = raw[2];
-            genero = raw[3];
         }
 
         public void setId(int id)

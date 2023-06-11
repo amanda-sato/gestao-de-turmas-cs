@@ -1,17 +1,20 @@
-﻿using System.Collections;
+﻿using System.Text.Json;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Runtime.Serialization.Json;
+using System.Text;
 
 namespace Gerenciador_de_Turmas
 {
     public class Repo<T> : IEnumerable<T> where T : IRegistro, new()
     {
         int nextId = 1;
-        protected readonly List<T> _list = new List<T>();
+        protected List<T> _list = new List<T>();
 
         public IEnumerator<T> GetEnumerator()
         {
@@ -74,23 +77,20 @@ namespace Gerenciador_de_Turmas
             throw new System.Exception($"Não há item com id {id}");
         }
 
-        public void salvarPara(string arquivoTxt)
+        public void salvarPara(string arquivoJson)
         {
-            FileStream fs = File.Create(arquivoTxt);
+            FileStream fs = File.Create(arquivoJson);
             Aes cod = Aes.Create();
             CryptoStream cr = new CryptoStream(fs, cod.CreateEncryptor(), CryptoStreamMode.Write);
-
             StreamWriter sw = new StreamWriter(cr);
 
-            foreach (T item in _list)
-            {
-                sw.WriteLine(item.paraTxt());
-            }
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(List<T>));
+            ser.WriteObject(sw.BaseStream, _list);
 
             sw.Close();
             fs.Close();
 
-            FileStream fsChave = File.Create($"{arquivoTxt}.key");
+            FileStream fsChave = File.Create($"{arquivoJson}.key");
 
             BinaryWriter bw = new BinaryWriter(fsChave);
 
@@ -100,42 +100,32 @@ namespace Gerenciador_de_Turmas
             fsChave.Close();
         }
 
-        public void carregarDe(string arquivoTxt)
+        public void carregarDe(string arquivoJson)
         {
-            if (!File.Exists(arquivoTxt)) return;
+            if (!File.Exists(arquivoJson)) return;
 
-            FileStream fich = File.OpenRead(arquivoTxt);
-            FileStream chave = File.OpenRead($"{arquivoTxt}.key");
+            FileStream fich = File.OpenRead(arquivoJson);
+            FileStream chave = File.OpenRead($"{arquivoJson}.key");
 
-            //AesCryptoServiceProvider cod = new AesCryptoServiceProvider();
             Aes cod = Aes.Create();
             BinaryReader brKey = new BinaryReader(chave);
             cod.Key = brKey.ReadBytes(32);
             cod.IV = brKey.ReadBytes(16);
 
-            CryptoStream cs = new CryptoStream(fich, cod.CreateDecryptor(), CryptoStreamMode.Read);
+            CryptoStream cryptoStream = new CryptoStream(fich, cod.CreateDecryptor(), CryptoStreamMode.Read);
+            StreamReader streamReader = new StreamReader(cryptoStream);
+            
+            string json = streamReader.ReadToEnd();
 
-            StreamReader sr = new StreamReader(cs);
+            MemoryStream memoryStream  = new MemoryStream(Encoding.UTF8.GetBytes(json));
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<T>));
 
-            int maxId = -1;
+            _list = (List<T>)serializer.ReadObject(memoryStream);
 
-            while (sr.Peek() >= 0)
-            {
-                string raw = sr.ReadLine();
-
-                T novo = new T();
-                novo.deTxt(raw);
-
-                _list.Add(novo);
-
-                if (novo.getId() > maxId) {
-                    maxId = novo.getId();
-                }
-            }
-
+            int maxId = _list.Max(item => item.getId());
             nextId = maxId + 1;
 
-            sr.Close();
+            streamReader.Close();
             fich.Close();
             chave.Close();
         }

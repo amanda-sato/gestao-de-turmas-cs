@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Gerenciador_de_Turmas
 {
+    [DataContract]
     public class Nota : IRegistro
     {
+        [DataMember]
         private int id;
+        [DataMember]
         private int alunoId;
+        [DataMember]
         private int disciplinaId;
+        [DataMember]
         private double nota;
 
         public Nota()
@@ -30,24 +36,10 @@ namespace Gerenciador_de_Turmas
             this.nota = nota;
         }
 
-        public void deTxt(string txt)
-        {
-            string[] raw = txt.Split(',');
-            id = int.Parse(raw[0]);
-            alunoId = int.Parse(raw[1]);
-            disciplinaId = int.Parse(raw[2]);
-            nota = double.Parse(raw[3]);
-        }
-
         public int getAlunoId() {  return alunoId; }
         public int getDisciplinaId() {  return disciplinaId; }
         public int getId() { return id; }
         public double getNota() {  return nota; }
-
-        public string paraTxt()
-        {
-            return $"{id},{alunoId},{disciplinaId},{nota}";
-        }
 
         public void setAlunoId(int alunoId) { this.alunoId = alunoId; }
 

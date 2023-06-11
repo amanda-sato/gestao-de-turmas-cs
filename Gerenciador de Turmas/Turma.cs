@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Gerenciador_de_Turmas
 {
+    [DataContract]
     public class Turma : IRegistro
     {
+        [DataMember]
         private int id;
+        [DataMember]
         private string nomeTurma;
 
         public Turma()
@@ -23,20 +27,8 @@ namespace Gerenciador_de_Turmas
             this.nomeTurma = nomeTurma;
         }
 
-        public void deTxt(string txt)
-        {
-            string[] raw = txt.Split(',');
-            id = int.Parse(raw[0]);
-            nomeTurma = raw[1];
-        }
-
         public int getId() { return id; }
         public string getNomeTurma() { return nomeTurma; }
-
-        public string paraTxt()
-        {
-            return $"{id},{nomeTurma}";
-        }
 
         public void setId(int id) { this.id = id; }
         public void setNomeTurma(string nomeTurma) { this.nomeTurma = nomeTurma; }

@@ -10,7 +10,5 @@ namespace Gerenciador_de_Turmas
     {
         void setId(int id);
         int getId();
-        string paraTxt();
-        void deTxt(string txt);
     }
 }
