@@ -16,16 +16,19 @@ namespace Gerenciador_de_Turmas
         {
             InitializeComponent();
 
-            dataGridView.ColumnCount = 2;
+            dataGridView.ColumnCount = 3;
             dataGridView.ColumnHeadersVisible = true;
             dataGridView.Columns[0].Name = "Disciplina";
             dataGridView.Columns[1].Name = "Taxa de aprovação (%)";
+            dataGridView.Columns[2].Name = "Alunos com nota";
 
             carregaInfos();
         }
 
         private void carregaInfos()
         {
+            int totalAlunos = Program.GetState().alunos.Count();
+
             foreach (Disciplina d in Program.GetState().disciplinas)
             {
                 int totalAprovados = 0;
@@ -44,14 +47,11 @@ namespace Gerenciador_de_Turmas
                     }
                 }
 
-                if (totalNotasDisciplina > 0)
-                {
-                    dataGridView.Rows.Add(new string[]{ d.getNomeDisc(), String.Format("{0:0.00}", (double)(totalAprovados) / totalNotasDisciplina * 100)})  ;
-                }
-                else
-                {
-                    dataGridView.Rows.Add(new string[]{ d.getNomeDisc(), "--" });
-                }
+                string valor = totalNotasDisciplina > 0
+                    ? String.Format("{0:0.00}", (double)(totalAprovados) / totalNotasDisciplina * 100)
+                    : "--";
+
+                dataGridView.Rows.Add(new string[] { d.getNomeDisc(), valor, $"{totalNotasDisciplina}/{totalAlunos}" });
             }
         }
 

@@ -109,35 +109,35 @@
             // voltarAoMenuPrincipalToolStripMenuItem
             // 
             this.voltarAoMenuPrincipalToolStripMenuItem.Name = "voltarAoMenuPrincipalToolStripMenuItem";
-            this.voltarAoMenuPrincipalToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
+            this.voltarAoMenuPrincipalToolStripMenuItem.Size = new System.Drawing.Size(305, 22);
             this.voltarAoMenuPrincipalToolStripMenuItem.Text = "Voltar ao Menu Principal";
             this.voltarAoMenuPrincipalToolStripMenuItem.Click += new System.EventHandler(this.voltarAoMenuPrincipalToolStripMenuItem_Click);
             // 
             // relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem
             // 
             this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem.Name = "relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem";
-            this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
-            this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem.Text = "Relação de AlunosAprovados e Reprovados";
+            this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem.Size = new System.Drawing.Size(305, 22);
+            this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem.Text = "Relação de Alunos Aprovados e Reprovados";
             this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem.Click += new System.EventHandler(this.relaçãoDeAlunosAprovadosEReprovadosToolStripMenuItem_Click);
             // 
             // médiaGeralPorAlunoToolStripMenuItem
             // 
             this.médiaGeralPorAlunoToolStripMenuItem.Name = "médiaGeralPorAlunoToolStripMenuItem";
-            this.médiaGeralPorAlunoToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
+            this.médiaGeralPorAlunoToolStripMenuItem.Size = new System.Drawing.Size(305, 22);
             this.médiaGeralPorAlunoToolStripMenuItem.Text = "Média Geral Por Aluno";
             this.médiaGeralPorAlunoToolStripMenuItem.Click += new System.EventHandler(this.médiaGeralPorAlunoToolStripMenuItem_Click);
             // 
             // taxaDeAprovaçãoPorDisciplinaToolStripMenuItem
             // 
             this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem.Name = "taxaDeAprovaçãoPorDisciplinaToolStripMenuItem";
-            this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
+            this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem.Size = new System.Drawing.Size(305, 22);
             this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem.Text = "Taxa de Aprovação Por Disciplina";
             this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem.Click += new System.EventHandler(this.taxaDeAprovaçãoPorDisciplinaToolStripMenuItem_Click);
             // 
             // encerrarProgramaToolStripMenuItem
             // 
             this.encerrarProgramaToolStripMenuItem.Name = "encerrarProgramaToolStripMenuItem";
-            this.encerrarProgramaToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
+            this.encerrarProgramaToolStripMenuItem.Size = new System.Drawing.Size(305, 22);
             this.encerrarProgramaToolStripMenuItem.Text = "Encerrar Programa";
             this.encerrarProgramaToolStripMenuItem.Click += new System.EventHandler(this.encerrarProgramaToolStripMenuItem_Click);
             // 

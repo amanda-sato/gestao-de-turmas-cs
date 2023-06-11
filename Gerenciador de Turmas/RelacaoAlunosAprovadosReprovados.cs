@@ -35,7 +35,10 @@ namespace Gerenciador_de_Turmas
                 {
                     foreach (Aluno aluno in Program.GetState().alunos)
                     {
-                        dataGridView.Rows.Add(new string[] { disciplina.getNomeDisc(), turma.getNomeTurma(), aluno.getNomeAluno(), aluno.situacao(disciplina) });
+                        if (aluno.getTurmaId() == turma.getId())
+                        {
+                            dataGridView.Rows.Add(new string[] { disciplina.getNomeDisc(), turma.getNomeTurma(), aluno.getNomeAluno(), aluno.situacao(disciplina) });
+                        }
                     }
                 }
             }
