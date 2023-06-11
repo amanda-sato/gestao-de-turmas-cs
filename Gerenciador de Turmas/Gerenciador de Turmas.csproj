@@ -77,6 +77,7 @@
   <ItemGroup>
     <Compile Include="Aluno.cs" />
     <Compile Include="AlunoRepo.cs" />
+    <Compile Include="Utils.cs" />
     <Compile Include="RelacaoAlunosAprovadosReprovados.cs">
       <SubType>Form</SubType>
     </Compile>

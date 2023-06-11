@@ -28,7 +28,7 @@ namespace Gerenciador_de_Turmas
 
         public int getNextId() => nextId;
 
-        public void Add(T item)
+        public virtual void Add(T item)
         {
             if (item.getId() < 0)
             {
